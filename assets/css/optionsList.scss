@@ -2,7 +2,7 @@
 $height-header: 70px;
 $height-filter: 50px;
 $height-hero: 1fr;
-$height-footer: 50px;
+$height-footer: 35px;
 $font-family: 'Comfortaa', cursive;
 $button-main-color: #6C82BC;
 
@@ -84,7 +84,8 @@ body {
     cursor: pointer;
     margin: 0 7px;
     padding: 7px 10px;
-    background: rgba(224, 180, 91, .9);
+    // background: rgba(224, 180, 91, .9);
+    background: rgb(108, 130, 188, .7);
     border-radius: 5px;
     color: #FFF;
   }
@@ -95,7 +96,7 @@ body {
 .options{
   grid-area: options;
   padding: 20px 5px 5px 10px;  
-  overflow: auto;
+  overflow: auto;  
 
   .options__title{
     margin: 0;
@@ -103,7 +104,7 @@ body {
     font-weight: bold;
   }
 
-  .options__item{
+  .options__item{    
     border: 1px solid lightgray;
     border-radius: 5px;
     margin: 20px 0px;
@@ -111,6 +112,7 @@ body {
     display: flex;
     align-items: center;
     box-sizing: border-box;
+    cursor: pointer;
 
     .options__item-figure{
       margin: 0;
@@ -156,18 +158,47 @@ body {
     }
 
   }
+
+  .options__item:hover{
+    box-shadow: 0px 0px 10px -2px rgba(0, 0, 0, .4); 
+  }
+
 }
 //Options End
 
 //Maps Start
 .maps{
   grid-area: maps;
-  border: 1px solid red;
 }
 //Maps End
 
 //Footer start
-.footer{
+.footer {
   grid-area: footer;
+  display: flex;
+  align-items: center;  
+  color: #000;
+  font-size: 14px;
+  font-weight: 100;
+  border-top: 1px solid lightgray;
+  padding: 0px 30px;
+  background: #f7f7f7;
+
+  a {
+    margin-right: 20px;
+    display: inline-block;
+    text-decoration: none;
+    color: #000;
+    font-size: 14px;
+    font-weight: 100;
+  }
+
+  p {
+    margin-left: auto;
+  }
+
+  a:hover {
+    text-decoration: underline;
+  }
 }
 //Footer End
