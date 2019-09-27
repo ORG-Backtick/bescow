@@ -1,0 +1,173 @@
+//VARIABLES
+$height-header: 70px;
+$height-filter: 50px;
+$height-hero: 1fr;
+$height-footer: 50px;
+$font-family: 'Comfortaa', cursive;
+$button-main-color: #6C82BC;
+
+body {
+  margin: 0;
+}
+
+.container {  
+  font-family: $font-family;  
+  box-sizing: border-box;
+  display: grid;
+  grid-template-rows: $height-header $height-filter $height-hero $height-footer;
+  grid-template-columns: 1.5fr 1fr;
+  grid-gap: 5px;
+  height: 100vh;
+  grid-template-areas: "header header"
+                       "filters filters"
+                       "options maps"
+                       "footer footer";
+}
+
+//Header Start
+.header {
+  grid-area: header;
+  padding: 5px 10px;
+  box-sizing: border-box;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  flex-wrap: wrap;  
+}
+.logo{
+  display: flex;
+  align-items: center;
+
+  span{
+    font-size: 30px;
+    letter-spacing: 2px;
+    font-weight: 700;
+    color: #000;
+  }
+}
+.logo__container {
+  margin: 0;
+  margin-right: 10px;
+  width: 60px;
+  height: 60px;
+
+  img{
+    width: 60px;
+  }
+}
+
+.menu__option {
+  display: inline-block;
+  text-decoration: none;
+  color: #000;
+  width: 120px;
+  height: 50px;
+  text-align: center;
+  line-height: 50px;
+  padding: 0 5px;  
+}
+
+.menu__option:hover {
+  border-bottom: 1px solid #000;
+}
+//Header End
+
+//Filters Start
+.filters{
+  grid-area: filters;
+  border-top: 1px solid lightgray;
+  border-bottom: 1px solid lightgray;
+  display: flex;
+  align-items: center;
+
+  .filter__item{
+    cursor: pointer;
+    margin: 0 7px;
+    padding: 7px 10px;
+    background: rgba(224, 180, 91, .9);
+    border-radius: 5px;
+    color: #FFF;
+  }
+}
+//Filters End
+
+//Options Start
+.options{
+  grid-area: options;
+  padding: 20px 5px 5px 10px;  
+  overflow: auto;
+
+  .options__title{
+    margin: 0;
+    font-size: 20px;
+    font-weight: bold;
+  }
+
+  .options__item{
+    border: 1px solid lightgray;
+    border-radius: 5px;
+    margin: 20px 0px;
+    height: 210px;
+    display: flex;
+    align-items: center;
+    box-sizing: border-box;
+
+    .options__item-figure{
+      margin: 0;
+
+      .options__item-img{
+        box-sizing: border-box;
+        vertical-align: top;
+        margin: 5px;
+        width: 300px;
+        height: 200px;
+      }
+    }
+
+    .options__item-details{
+      margin: 5px 5px 5px 2px;
+      padding: 16px 12px;
+      height: 200px;
+      width: 100%;
+      box-sizing: border-box;
+
+      .details__title{
+        margin: 0;
+        margin-bottom:20px;
+      }
+
+      .details__description{
+        margin: 0;
+        margin-bottom: 20px;
+        color: #646464;
+      }
+
+      .details__amenities{
+        margin: 0;
+        padding: 0 0 0 20px;
+        color: #646464;
+      }
+
+      .details__price{
+        font-weight: 700;
+        letter-spacing: 1px;
+        text-align: end;
+      }
+    }
+
+  }
+}
+//Options End
+
+//Maps Start
+.maps{
+  grid-area: maps;
+  border: 1px solid red;
+}
+//Maps End
+
+//Footer start
+.footer{
+  grid-area: footer;
+}
+//Footer End
