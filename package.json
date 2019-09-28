@@ -1,0 +1,29 @@
+{
+  "name": "bescow",
+  "version": "1.0.0",
+  "description": "bescow is an app to search the best space of coworking for work like freelance or just having a great place to meeting",
+  "main": "index.js",
+  "scripts": {
+    "start": "live-server --browser='Google Chrome'",
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/ORG-Backtick/bescow.git"
+  },
+  "author": "Lisset Orozco, Andres Valencia",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/ORG-Backtick/bescow/issues"
+  },
+  "homepage": "https://github.com/ORG-Backtick/bescow#readme",
+  "devDependencies": {
+    "eslint": "^6.3.0",
+    "eslint-config-airbnb": "^18.0.1",
+    "eslint-plugin-import": "^2.18.2",
+    "eslint-plugin-jsx-a11y": "^6.2.3",
+    "eslint-plugin-react": "^7.14.3",
+    "eslint-plugin-react-hooks": "^1.7.0",
+    "live-server": "^1.2.1"
+  }
+}
