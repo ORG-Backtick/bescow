@@ -4,7 +4,7 @@
   "description": "bescow is an app to search the best space of coworking for work like freelance or just having a great place to meeting",
   "main": "index.js",
   "scripts": {
-    "start": "live-server",
+    "start": "live-server --browser='Google Chrome'",
     "test": "echo \"Error: no test specified\" && exit 1"
   },
   "repository": {
