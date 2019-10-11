@@ -31,6 +31,7 @@ $button-main-color: #6C82BC;
 %a-setting{
   text-decoration: none;
   display: inline-block;
+  color: rgb(159, 121, 196);
 }
 
 .overlay{
@@ -53,11 +54,14 @@ $button-main-color: #6C82BC;
   left: 50%;
   top: 0;
   bottom: 0;
+  // margin-top: 100px;
+  // margin-bottom: 100px;
   margin: auto 0;
   transform: translate(-50%);
   padding: 32px;
   box-sizing: border-box;
   background: #FFF;
+  font-family: $font-family;
 
   .close{
     color: rgba(0, 0, 0, .5);
@@ -111,7 +115,55 @@ $button-main-color: #6C82BC;
     color: #767676;
     outline: none;
     font-size: 16px;
-  } 
+  }
+
+  .form__options {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    margin-bottom: 16px;
+
+    .label__rememberme {
+      font-size: 14px;
+    }
+
+    .form__options-rememberme[type="checkbox"] {
+      margin: 0;
+      margin-right: 5px;
+      width: 14.3px;
+      height: 14.3px;
+    }
+
+    .form__options-showpass {
+      font-size: 14px;
+    }
+  }
+
+  .form__options-button {
+    background: #E1B55A;
+  }
+
+  .forgotpass {
+    font-size: 14px;
+    margin-bottom: 50px;
+    text-align: center;
+  }
+
+  .label__signup {
+    font-size: 14px;
+    display: inline-block
+  }
+
+  .signup {
+    display: inline-block;
+  }
+
+  a {
+    @extend %a-setting;
+  }
+  a:hover{
+    text-decoration: underline;
+  }
 
 }
 
