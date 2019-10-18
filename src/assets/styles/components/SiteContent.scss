@@ -169,6 +169,8 @@ body {
 //Maps Start
 .maps{
   grid-area: maps;
+  box-sizing: border-box;
+  position: relative;
 }
 //Maps End
 
