@@ -5,7 +5,7 @@ $height-hero: minmax(
   450px,
   calc(100vh - (#{$height-header} + #{$height-footer} + 30px))
 );
-$font-family: 'Comfortaa', cursive;
+$font-family: 'Comfortaa', 'Arial';
 $button-main-color: #6C82BC;
 
 body {

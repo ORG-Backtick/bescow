@@ -1,0 +1,146 @@
+@charset "UTF-8";
+@import './fonts.css';
+.register a, .register .close {
+  text-decoration: none;
+  display: inline-block;
+  color: #9f79c4;
+}
+
+.overlay {
+  position: fixed;
+  z-index: 1;
+  top: 0;
+  left: 0;
+  bottom: 0;
+  right: 0;
+  background: rgba(0, 0, 0, 0.6);
+}
+
+.register {
+  display: flex;
+  flex-direction: column;
+  width: 568px;
+  height: 630px;
+  position: absolute;
+  z-index: 2;
+  left: 50%;
+  top: 0;
+  bottom: 0;
+  margin: auto 0;
+  transform: translate(-50%);
+  padding: 32px;
+  box-sizing: border-box;
+  background: #FFF;
+  font-family: "Comfortaa", "Arial";
+}
+.register .close {
+  color: rgba(0, 0, 0, 0.5);
+  width: fit-content;
+  font-size: 20px;
+  font-weight: 100;
+  margin-bottom: 16px;
+}
+.register .button {
+  width: 100%;
+  height: 46px;
+  margin-bottom: 16px;
+  padding: 10px 22px;
+  font-family: "Comfortaa", "Arial";
+  border: 0;
+  border-radius: 5px;
+  color: #fff;
+  font-size: 16px;
+  font-weight: 700;
+  outline: none;
+  cursor: pointer;
+}
+.register .facebook {
+  background: #4568B2;
+}
+.register .twitter {
+  background: #1EA1F1;
+}
+.register .google {
+  border: 2px solid #767676;
+  color: #484848;
+}
+.register .icon {
+  font-size: 18px;
+  margin-right: 8px;
+}
+.register .line {
+  width: 100%;
+  margin-bottom: 16px;
+}
+.register .input {
+  width: 100%;
+  height: 46px;
+  margin-bottom: 16px;
+  padding: 10px 22px;
+  border: 1px solid #EBEBEB;
+  box-sizing: border-box;
+  border-radius: 5px;
+  color: #767676;
+  outline: none;
+  font-size: 16px;
+}
+.register .input:focus {
+  border: 1px solid #73BCC8;
+  z-index: 1;
+}
+.register .form__options-button {
+  background: #E1B55A;
+}
+.register .label__signup {
+  font-size: 14px;
+  display: inline-block;
+}
+.register .signup {
+  display: inline-block;
+}
+.register a:hover {
+  text-decoration: underline;
+}
+
+.icon-google:before {
+  content: "";
+  color: #E44033;
+}
+
+.icon-twitter:before {
+  content: "";
+}
+
+.icon-facebook:before {
+  content: "";
+}
+
+.icon-close:before {
+  content: "";
+}
+
+@media screen and (max-width: 600px) {
+  .overlay {
+    display: none;
+  }
+
+  .register {
+    width: 100%;
+    height: 100%;
+    padding: 20px 10px;
+  }
+  .register .button {
+    font-size: 16px;
+  }
+  .register .icon {
+    font-size: 18px;
+  }
+  .register .input {
+    font-size: 16px;
+  }
+  .register .label__signup {
+    font-size: 14px;
+  }
+}
+
+/*# sourceMappingURL=register.css.map */
