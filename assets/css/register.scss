@@ -19,11 +19,11 @@ $button-main-color: #6C82BC;
   background: rgba(0, 0, 0, .6);
 }
 
-.signin{
+.register{
   display: flex;
   flex-direction: column;
   width: 568px;
-  height: 625px;
+  height: 630px;
   position: absolute;
   z-index: 2;
   left: 50%;
@@ -104,36 +104,8 @@ $button-main-color: #6C82BC;
     z-index: 1;
   }
 
-  .form__options {
-    display: flex;
-    align-items: center;
-    justify-content: space-between;
-    margin-bottom: 16px;
-
-    .label__rememberme {
-      font-size: 14px;
-    }
-
-    .form__options-rememberme[type="checkbox"] {
-      margin: 0;
-      margin-right: 5px;
-      width: 14.3px;
-      height: 14.3px;
-    }
-
-    .form__options-showpass {
-      font-size: 14px;
-    }
-  }
-
   .form__options-button {
     background: #E1B55A;
-  }
-
-  .forgotpass {
-    font-size: 14px;
-    margin-bottom: 50px;
-    text-align: center;
   }
 
   .label__signup {
@@ -151,7 +123,6 @@ $button-main-color: #6C82BC;
   a:hover{
     text-decoration: underline;
   }
-
 }
 
 .icon-google:before {
@@ -166,4 +137,32 @@ $button-main-color: #6C82BC;
 }
 .icon-close:before {
   content: "\e900";
+}
+
+@media screen and (max-width: 600px ) {
+  .overlay{
+    display: none;
+  }
+  
+  .register{
+    width: 100%;
+    height: 100%;
+    padding: 20px 10px;
+  
+    .button{
+      font-size: 16px;
+    }
+
+    .icon {
+      font-size: 18px;
+    }
+
+    .input {
+      font-size: 16px;
+    }
+  
+    .label__signup {
+      font-size: 14px;
+    }
+  }
 }
