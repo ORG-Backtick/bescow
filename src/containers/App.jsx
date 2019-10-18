@@ -1,10 +1,15 @@
 import React from 'react';
+// import LandingPage from './LandingPage';
+// import SiteContent from './SiteContent';
+// import Signin from './Signin';
+import Register from './Register';
 
 const App = () => {
   return (
-    <div>
-      <h1>Hello World!</h1>
-    </div>
+    // <LandingPage />
+    // <SiteContent />
+    // <Signin />
+    <Register />
   );
 };
 export default App;

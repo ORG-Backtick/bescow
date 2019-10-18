@@ -1,6 +1,8 @@
 import React from 'react';
+import logo from '../assets/static/logoCow.svg';
+import '../assets/styles/components/LandingPage.scss';
 
-const Home = () => {
+const LandingPage = () => {
   return (
     <main className='container'>
       <div className='cover__container-top' />
@@ -8,7 +10,7 @@ const Home = () => {
         <div className='logo'>
           <figure className='logo__container'>
             <img
-              src='../assets/images/logoCow.svg'
+              src={logo}
               alt='Logo Bescow'
               className='logo__img'
             />
@@ -98,4 +100,4 @@ const Home = () => {
     </main>
   );
 };
-export default Home;
+export default LandingPage;
