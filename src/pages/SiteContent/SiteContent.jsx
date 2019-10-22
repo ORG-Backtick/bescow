@@ -1,11 +1,12 @@
 import React from 'react';
 import { Map, GoogleApiWrapper } from 'google-maps-react';
-import logoColor from '../assets/static/logoCow_Colors.svg';
-import space1 from '../assets/static/space1_opt.jpg';
-import space2 from '../assets/static/space2_opt.jpg';
-import space3 from '../assets/static/space3_opt.jpg';
-import space4 from '../assets/static/space4_opt.jpg';
-import '../assets/styles/components/SiteContent.scss';
+import SiteCard from '../../components/SiteCard';
+import logoColor from '../../assets/static/logoCow_Colors.svg';
+import space1 from '../../assets/static/space1_opt.jpg';
+import space2 from '../../assets/static/space2_opt.jpg';
+import space3 from '../../assets/static/space3_opt.jpg';
+import space4 from '../../assets/static/space4_opt.jpg';
+import '../../assets/styles/components/SiteContent.scss';
 
 class SiteContent extends React.Component {
   constructor(props) {
@@ -16,34 +17,39 @@ class SiteContent extends React.Component {
 
   render() {
     return (
-      <main className='container'>
-        <header className='header'>
-          <div className='logo'>
-            <figure className='logo__container'>
+      <main className='container__site'>
+        <header className='header__site'>
+          <div className='logo__site'>
+            <figure className='logo__container-site'>
               <img src={logoColor} alt='Logo Bescow' className='logo__img' />
             </figure>
             <span>Bescow</span>
           </div>
-          <nav className='menu'>
-            <a className='menu__option' href='/'>
+          <nav className='menu__site'>
+            <a className='menu__option-site' href='/'>
               Inicia sesión
             </a>
-            <a className='menu__option' href='/'>
+            <a className='menu__option-site' href='/'>
               Regístrate
             </a>
           </nav>
         </header>
 
-        <section className='filters'>
-          <p className='filter__item'>Ciudad de México</p>
-          <p className='filter__item'>26 de Sep - 30 de Sep</p>
-          <p className='filter__item'>2 Coworkers</p>
+        <section className='filters__site'>
+          <p className='filter__item-site'>Ciudad de México</p>
+          <p className='filter__item-site'>26 de Sep - 30 de Sep</p>
+          <p className='filter__item-site'>2 Coworkers</p>
         </section>
 
-        <section className='options'>
+        <section className='options__site'>
           <h2 className='options__title'>250 espacios para trabajar</h2>
 
-          <div className='options__item'>
+          <SiteCard imgCover={space1} />
+          <SiteCard imgCover={space2} />
+          <SiteCard imgCover={space3} />
+          <SiteCard imgCover={space4} />
+
+          {/* <div className='options__item'>
             <figure className='options__item-figure'>
               <img
                 src={space1}
@@ -134,10 +140,10 @@ class SiteContent extends React.Component {
               </ul>
               <p className='details__price'>$250 MXN/día</p>
             </div>
-          </div>
+          </div> */}
         </section>
 
-        <section className='maps'>
+        <section className='maps__site'>
           <Map
             google={this.google}
             zoom={9}
@@ -145,7 +151,7 @@ class SiteContent extends React.Component {
           />
         </section>
 
-        <footer className='footer'>
+        <footer className='footer__site'>
           <a href='/'>Condiciones</a>
           <a href='/'>Privacidad</a>
           <p>© 2019 Bescow. All rights reserved.</p>
@@ -157,5 +163,5 @@ class SiteContent extends React.Component {
 
 };
 export default GoogleApiWrapper({
-  apiKey: '',
+  apiKey: 'AIzaSyCmjvkXB_DMnBUNwxQztLMStyQmA_szbNw',
 })(SiteContent);

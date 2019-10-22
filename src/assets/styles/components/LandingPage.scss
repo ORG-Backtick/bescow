@@ -14,7 +14,7 @@ body {
   margin: 0;
 }
 
-.container {
+.container__landing {
   display: grid;
   grid-template-rows: $height-header $height-hero $height-footer;
   grid-template-columns: minmax(320px, 1fr);
@@ -49,14 +49,14 @@ body {
 }
 
 //Header Start
-.header {
+.header__landing {
   box-sizing: border-box;
   display: flex;
   align-items: center;
   justify-content: space-between;
   flex-wrap: wrap;
 }
-.logo{
+.logo__landing {
   display: flex;
   align-items: center;
   z-index: 3;
@@ -68,7 +68,7 @@ body {
     color: #FFF;
   }
 }
-.logo__container {
+.logo__container-landing {
   margin: 0;
   margin-right: 10px;
   width: 70px;
@@ -79,10 +79,10 @@ body {
   }
 }
 
-.menu{
+.menu__landing{
   z-index: 3;
 }
-.menu__option {
+.menu__option-landing {
   display: inline-block;
   text-decoration: none;
   color: #fff;
@@ -93,11 +93,11 @@ body {
   padding: 0 5px;  
 }
 
-.menu__option:hover {
+.menu__option-landing:hover {
   border-bottom: 1px solid #fff;
 }
 
-.header__title {
+.header__title-landing {
   display: none;
   color: #fff;
   margin: 0;
@@ -118,7 +118,7 @@ body {
   box-sizing: border-box;
 }
 
-.form {
+.hero__form {
   width: 440px;
   height: 435px;
   margin-left: 70px;
@@ -135,14 +135,14 @@ body {
   margin-bottom: 16px;
 }
 
-.label {
+.hero__label {
   display: inline-block;
   font-size: 12px;
   margin-bottom: 8px;
   cursor: pointer;
 }
 
-.input {
+.hero__input {
   height: 46px;
   border: none;
   border: 1px solid rgb(212, 210, 210);
@@ -155,28 +155,28 @@ body {
   margin-bottom: 16px;
 }
 
-.input:focus {
+.hero__input:focus {
   border: 1px solid #73BCC8;
 
   z-index: 1;
 }
-.input::placeholder{
+.hero__input::placeholder{
   font-family: $font-family;
 }
 
-.form__date-container {
+.hero__form-date-container {
   display: flex;
   width: 100%;
 }
 
-.form__date-checkin {
+.hero__form-date-checkin {
   width: 186px;
   border-top-right-radius: 0;
   border-bottom-right-radius: 0;
   position: relative;
 }
 
-.form__date-checkout {
+.hero__form-date-checkout {
   width: 186px;
   border-top-left-radius: 0;
   border-bottom-left-radius: 0;
@@ -184,7 +184,7 @@ body {
   left: -2px;
 }
 
-.button__first {
+.hero__button-first {
   width: fit-content;
   height: 46px;
   padding: 10px 22px;
@@ -200,14 +200,14 @@ body {
   cursor: pointer;
 }
 
-.button__first:active {
+.hero__button-first:active {
   transform: scale(0.95);
   opacity: 0.7;
 }
 //Hero End
 
 //Footer Start
-.footer {
+.footer__landing {
   display: flex;
   align-items: center;
   justify-content: flex-end;
@@ -237,7 +237,7 @@ body {
   $height-hero: 370px;
   $height-footer: 30px;
 
-  .container {
+  .container__landing {
     padding: 0;
     background: none;
     grid-template-rows: $height-header $height-hero $height-footer;
@@ -256,7 +256,7 @@ body {
   }
 
   //Header Start
-  .header {
+  .header__landing {
     padding: 5px 24px 0px;
     align-items: flex-start;
     justify-content: space-between;
@@ -265,7 +265,7 @@ body {
     background-size: cover;
   }
 
-  .header__title {
+  .header__title-landing {
     display: block;
     z-index: 3;
   }
@@ -279,7 +279,7 @@ body {
     padding-top: 10px;
   }
 
-  .form {
+  .hero__form {
     width: 100%;
     height: 310px;
     margin: 0;
@@ -292,22 +292,22 @@ body {
     display: none;
   }
 
-  .date__checkin {
+  .hero__date-checkin {
     width: 50%;
   }
 
-  .form__date-checkin {
+  .hero__form-date-checkin {
     width: 100%;
     border-top-right-radius: 0;
     border-bottom-right-radius: 0;
     position: relative;
   }
 
-  .date__checkout {
+  .hero__date-checkout {
     width: 50%;
   }
 
-  .form__date-checkout {
+  .hero__form-date-checkout {
     width: 100%;
     border-top-left-radius: 0;
     border-bottom-left-radius: 0;
@@ -315,13 +315,13 @@ body {
     left: -2px;
   }
 
-  .button__first {
+  .hero__button-first {
     width: 100%;
     cursor: pointer;
   }
 
   //Footer Start
-  .footer {
+  .footer__landing {
     color: #000;
     padding: 0 24px;
     justify-content: center;

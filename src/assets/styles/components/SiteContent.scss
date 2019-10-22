@@ -12,7 +12,7 @@ body {
   margin: 0;
 }
 
-.container {  
+.container__site {  
   font-family: $font-family;  
   box-sizing: border-box;
   display: grid;
@@ -27,7 +27,7 @@ body {
 }
 
 //Header Start
-.header {
+.header__site {
   grid-area: header;
   padding: 5px 10px;
   box-sizing: border-box;
@@ -36,7 +36,7 @@ body {
   justify-content: space-between;
   flex-wrap: wrap;  
 }
-.logo{
+.logo__site{
   display: flex;
   align-items: center;
 
@@ -47,7 +47,7 @@ body {
     color: #000;
   }
 }
-.logo__container {
+.logo__container-site {
   margin: 0;
   margin-right: 10px;
   width: 60px;
@@ -58,7 +58,7 @@ body {
   }
 }
 
-.menu__option {
+.menu__option-site {
   display: inline-block;
   text-decoration: none;
   color: #000;
@@ -69,20 +69,20 @@ body {
   padding: 0 5px;  
 }
 
-.menu__option:hover {
+.menu__option-site:hover {
   border-bottom: 1px solid #000;
 }
 //Header End
 
 //Filters Start
-.filters{
+.filters__site{
   grid-area: filters;
   border-top: 1px solid lightgray;
   border-bottom: 1px solid lightgray;
   display: flex;
   align-items: center;
 
-  .filter__item{
+  .filter__item-site{
     cursor: pointer;
     margin: 0 7px;
     padding: 7px 10px;
@@ -94,7 +94,7 @@ body {
 //Filters End
 
 //Options Start
-.options{
+.options__site{
   grid-area: options;
   padding: 20px 5px 5px 10px;  
   overflow: auto;  
@@ -167,7 +167,7 @@ body {
 //Options End
 
 //Maps Start
-.maps{
+.maps__site{
   grid-area: maps;
   box-sizing: border-box;
   position: relative;
@@ -175,7 +175,7 @@ body {
 //Maps End
 
 //Footer start
-.footer {
+.footer__site {
   grid-area: footer;
   display: flex;
   align-items: center;  
