@@ -1,0 +1,175 @@
+$url-img-bakground: url(../../static/tanner-van-dera-oaQ2mTeaP7o-unsplash.jpg);
+
+.header {
+  box-sizing: border-box;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  flex-wrap: wrap;
+}
+
+.header.isSearch {
+  grid-area: header;
+  padding: 5px 10px;
+}
+
+.logo {
+  display: flex;
+  align-items: center;
+  z-index: 3;
+
+  .logo__name {
+    font-size: 30px;
+    letter-spacing: 2px;
+    font-weight: 700;
+  }
+}
+
+.logo__container {
+  margin: 0;
+  margin-right: 10px;
+  width: 60px;
+  height: 60px;
+
+  img {
+    width: 60px;
+  }
+}
+
+.menu__header {
+  z-index: 3;
+}
+
+.menu__header-option {
+  display: inline-block;
+  text-decoration: none;
+  width: 120px;
+  height: 50px;
+  text-align: center;
+  line-height: 50px;
+  padding: 0 5px;
+}
+
+.menu__header-option:hover {
+  border-bottom: 1px solid;
+}
+
+.header__title-landing {
+  display: none;
+  color: #fff;
+  margin: 0;
+  margin-bottom: 10px;
+  align-self: flex-end;
+  width: 100%;
+  text-align: center;
+  font-weight: 300;
+  font-size: 30px;
+}
+
+.isLanding {
+  color: #fff;
+}
+
+.isSearch {
+  color: #000;
+}
+
+@media screen and (max-width: 743px) {
+  .header.isLanding {
+    padding: 5px 10px 0px;
+    align-items: flex-start;
+    justify-content: space-between;
+    background-image: $url-img-bakground;
+    background-position: center;
+    background-size: cover;
+  }
+
+  .logo {
+    .logo__name.isLanding {
+      font-size: 20px;
+      letter-spacing: 2px;
+      font-weight: 700;
+    }
+  }
+
+  .logo__container.isLanding {
+    margin: 0;
+    margin-right: 5px;
+    width: 40px;
+    height: 40px;
+
+    img {
+      width: 40px;
+    }
+  }
+
+  .menu__header-option.isLanding {
+    font-size: 14px;
+    width: 97px;
+    height: 45px;
+    line-height: 45px;
+    padding: 0 3px;
+    box-sizing: border-box;
+  }
+
+  .header__title-landing.isLanding {
+    display: block;
+    z-index: 3;
+  }
+}
+
+@media screen and (max-width: 490px) {
+  .logo {
+    .logo__name.isSearch {
+      font-size: 20px;
+      letter-spacing: 2px;
+      font-weight: 700;
+    }
+  }
+
+  .logo__container.isSearch {
+    margin: 0;
+    margin-right: 5px;
+    width: 40px;
+    height: 40px;
+
+    img {
+      width: 40px;
+    }
+  }
+
+  .menu__header-option.isSearch {
+    font-size: 14px;
+    width: 97px;
+    height: 45px;
+    line-height: 45px;
+    padding: 0 3px;
+    box-sizing: border-box;
+  }
+}
+
+@media screen and (max-width: 460px) {
+  .header__title-landing.isLanding {
+    font-size: 20px;
+  }
+}
+
+@media screen and (max-width: 362px) {
+  .logo {
+    .logo__name.isSearch {
+      display: none;
+    }
+  }
+}
+
+@media screen and (max-width: 353px) {
+  .logo {
+    .logo__name.isLanding {
+      display: none;
+    }
+  }
+
+  .header__title-landing.isLanding {
+    font-size: 15px;
+  }
+}

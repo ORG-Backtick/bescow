@@ -9,9 +9,9 @@ const LandingPage = ({ props }) => {
   return (
     <main className='container__landing'>
       <div className='cover__container-top' />
-      <Header logo={logo} />
+      <Header logo={logo} origin='isLanding' />
       <FormLanding props={props} />
-      <Footer />
+      <Footer origin='isLanding' />
       <div className='cover__container-bottom' />
     </main>
   );

@@ -1,6 +1,7 @@
 import React from 'react';
+import '../assets/styles/components/SearchItem.scss';
 
-const SiteCard = (props) => {
+const SearchItem = (props) => {
   const { imgCover } = props;
   return (
     <div className='options__item'>
@@ -26,4 +27,4 @@ const SiteCard = (props) => {
     </div>
   );
 };
-export default SiteCard;
+export default SearchItem;
