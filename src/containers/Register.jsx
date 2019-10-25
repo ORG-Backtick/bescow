@@ -2,14 +2,14 @@ import React from 'react';
 import '../assets/styles/components/Register.scss';
 import '../assets/styles/Icons.css';
 
-const Register = () => {
+const Register = (props) => {
   return (
     <div className='overlay__register'>
       <div className='register__container'>
         <section className='register'>
-          <a href='/' className='close'>
-            <i className='icon-close icon' />
-          </a>
+          <div className='close'>
+            <i className='icon-close icon' onClick={props.handleCloseClick} />
+          </div>
           <button type='button' className='button facebook'>
             <i className='icon-facebook icon' />
             Continuar con Facebook
@@ -44,7 +44,7 @@ const Register = () => {
           </form>
           <label className='label__register'>
             ¿Ya tienes una cuenta de Bescow?{' '}
-            <a href='/'>
+            <a onClick={props.handleOpenClick}>
               Inicia sesión
             </a>
           </label>

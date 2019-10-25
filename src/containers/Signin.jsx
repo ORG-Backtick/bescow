@@ -2,14 +2,15 @@ import React from 'react';
 import '../assets/styles/components/Signin.scss';
 import '../assets/styles/Icons.css';
 
-const Signin = () => {
+const Signin = (props) => {
+
   return (
     <div className='overlay__signin'>
       <div className='signin__container'>
         <section className='signin'>
-          <a href='/' className='close'>
-            <i className='icon-close icon' />
-          </a>
+          <div className='close'>
+            <i className='icon-close icon' onClick={props.handleCloseClick} />
+          </div>
           <button type='button' className='button facebook'>
             <i className='icon-facebook icon' />
             Iniciar sesión con Facebook
@@ -60,9 +61,8 @@ const Signin = () => {
             ¿Has olvidado tu contraseña?
           </a>
           <label className='label__signup'>
-            ¿No tienes una cuenta?
-            {' '}
-            <a href='/' className='signup'>
+            ¿No tienes una cuenta?{' '}
+            <a className='signup' onClick={props.handleOpenClick}>
               Regístrate
             </a>
           </label>

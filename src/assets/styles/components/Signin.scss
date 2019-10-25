@@ -10,7 +10,7 @@
   width: 100%;
   height: 100%;
   position: fixed;
-  z-index: 1;
+  z-index: 3;
   top: 0;
   left: 0;
   background: rgba(0, 0, 0, 0.8);
@@ -29,7 +29,7 @@
   width: 568px;
   height: 625px;
   position: relative;
-  z-index: 2;
+  z-index: 4;
   padding: 32px;
   box-sizing: border-box;
   background: #fff;
@@ -37,11 +37,7 @@
 
   .close {
     color: rgba(0, 0, 0, 0.5);
-    width: fit-content;
-    font-size: 20px;
-    font-weight: 100;
     margin-bottom: 16px;
-    @extend %a-setting;
   }
 
   .button {
@@ -162,6 +158,7 @@
 }
 .icon-close:before {
   content: '\e900';
+  cursor: pointer;
 }
 
 @media screen and (max-width: 620px) {
@@ -173,14 +170,14 @@
     right: 0;
     bottom: 0;
     width: 100%;
-    height: 100%; 
+    height: 100%;
     padding: 20px 10px;
     overflow: auto;
   }
 }
 
 @media screen and (max-width: 326px) {
-  .signin {  
+  .signin {
     .button {
       font-size: 14px;
     }

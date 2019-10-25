@@ -4,19 +4,14 @@ import LayoutSearch from '../pages/SearchPage/LayoutSearch';
 import LayoutLanding from '../pages/LandingPage/LayoutLanding';
 import '../assets/styles/App.scss';
 
-import Signin from '../containers/Signin';
-import Register from '../containers/Register';
-
-const App = () => {
+const Home = () => {
   return (
     <BrowserRouter>
       <Switch>
         <Route exact path='/' component={LayoutLanding} />
         <Route exact path='/search' component={LayoutSearch} />
-        <Route exact path='/signin' component={Signin} />
-        <Route exact path='/register' component={Register} />
       </Switch>
     </BrowserRouter>
   );
 };
-export default App;
+export default Home;
