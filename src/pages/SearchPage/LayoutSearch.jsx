@@ -1,9 +1,12 @@
 import React from 'react';
-import SearchPage from './SearchPage';
+import '../../assets/styles/components/SearchPage.scss';
 
-const LayoutSearch = () => {
+const LayoutSearch = (props) => {
+  const { children } = props;
   return (
-    <SearchPage />
+    <main className='container__search'>
+      {children}
+    </main>
   );
 };
 export default LayoutSearch;

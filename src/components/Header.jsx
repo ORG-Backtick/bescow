@@ -1,8 +1,8 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
 import Modal from '../containers/Modal';
-import Signin from '../containers/Signin';
-import Register from '../containers/Register';
+import Signin from './Signin';
+import Register from './Register';
 import '../assets/styles/components/Header.scss';
 
 class Header extends React.Component {

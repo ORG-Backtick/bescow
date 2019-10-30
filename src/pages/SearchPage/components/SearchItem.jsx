@@ -1,5 +1,5 @@
 import React from 'react';
-import '../assets/styles/components/SearchItem.scss';
+import '../../../assets/styles/components/SearchItem.scss';
 
 const SearchItem = (props) => {
   const { imgCover } = props;

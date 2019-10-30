@@ -1,18 +1,18 @@
 import React from 'react';
+import LayoutSearch from './LayoutSearch';
 import Header from '../../components/Header';
 import Footer from '../../components/Footer';
-import SearchItem from '../../components/SearchItem';
-import MapComponent from '../../components/MapComponent';
+import SearchItem from './components/SearchItem';
+import MapComponent from '../../containers/MapComponent';
 import logoColor from '../../assets/static/logoCow_Colors.svg';
 import space1 from '../../assets/static/space1_opt.jpg';
 import space2 from '../../assets/static/space2_opt.jpg';
 import space3 from '../../assets/static/space3_opt.jpg';
 import space4 from '../../assets/static/space4_opt.jpg';
-import '../../assets/styles/components/SearchPage.scss';
 
 const SearchPage = () => {
   return (
-    <main className='container__search'>
+    <LayoutSearch>
       <Header logo={logoColor} origin='isSearch' />
 
       <section className='filters__search'>
@@ -34,7 +34,7 @@ const SearchPage = () => {
       </section>
 
       <Footer origin='isSearch' />
-    </main>
+    </LayoutSearch>
   );
 };
 export default SearchPage;
