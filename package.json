@@ -7,6 +7,7 @@
     "build": "webpack --mode production",
     "startWebpack": "webpack-dev-server --open --mode development",
     "start": "live-server --browser='Google Chrome'",
+    "install": "npm install --unsafe-perm",
     "test": "echo \"Error: no test specified\" && exit 1"
   },
   "repository": {
