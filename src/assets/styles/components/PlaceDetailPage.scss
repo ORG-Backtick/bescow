@@ -1,0 +1,107 @@
+@import '../Vars.scss';
+
+$height-header: 70px;
+$height-details: auto;
+// $height-hero: 1fr;
+$height-footer: 35px;
+$button-main-color: $button-main-color;
+
+body {
+  margin: 0;
+}
+
+.container__detail {
+  font-family: $font-family;
+  box-sizing: border-box;
+  display: grid;
+  margin: 0 10px;
+  grid-template-rows: $height-header $height-details $height-footer;
+  // grid-template-columns: 1.5fr 1fr;
+  grid-gap: 5px;
+  // height: 100vh;
+  grid-template-areas:
+    'header'
+    'details'
+    'footer';
+}
+
+.details {
+  display: flex;
+  flex-direction: column;
+}
+
+.filters__search {
+  grid-area: filters;
+  border-top: 1px solid lightgray;
+  border-bottom: 1px solid lightgray;
+  display: flex;
+  align-items: center;
+  overflow: auto;
+
+  .filter__item-search {
+    cursor: pointer;
+    margin: 0 7px;
+    padding: 7px 10px;
+    background: rgba(108, 130, 188, 0.7);
+    border-radius: 5px;
+    color: #fff;
+    flex-shrink: 0;
+  }
+}
+
+.options__search {
+  grid-area: options;
+  padding: 20px 5px 5px 10px;
+  overflow: auto;
+
+  .options__title {
+    margin: 0;
+    font-size: 20px;
+    font-weight: bold;
+  }
+}
+
+.maps__search {
+  grid-area: maps;
+  box-sizing: border-box;
+  position: relative;
+}
+
+@media screen and (max-width: 1038px) {
+  .container__search {
+    grid-template-columns: 2fr 1fr;
+    grid-template-areas:
+      'header header'
+      'filters filters'
+      'options maps'
+      'footer footer';
+  }
+}
+
+@media screen and (max-width: 792px) {
+  .container__search {
+    grid-template-columns: minmax(320px, 1fr);
+    grid-gap: 0px;
+    grid-template-areas:
+      'header'
+      'filters'
+      'options'
+      'footer';
+  }
+
+  .options__search {
+    overflow: initial;
+    padding: 20px 8px 5px 8px;
+  }
+}
+
+@media screen and (max-width: 510px) {
+  $height-header: 70px;
+  $height-filter: 50px;
+  $height-hero: 1fr;
+  $height-footer: auto;
+
+  .container__search {
+    grid-template-rows: $height-header $height-filter $height-hero $height-footer;
+  }
+}

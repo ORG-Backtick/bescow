@@ -1,7 +1,7 @@
 import React from 'react';
 import '../../../assets/styles/components/SearchItem.scss';
 
-const SearchItem = (props) => {
+const SearchItem = props => {
   const { imgCover } = props;
   return (
     <div className='options__item'>
