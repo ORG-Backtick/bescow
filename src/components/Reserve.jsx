@@ -39,7 +39,7 @@ const Reserve = (props) => {
           <button type='button' className='button button__reserve'>
             Reservar
           </button>
-          <p className='cancel__reserve'>Cancelar</p>
+          <p className='cancel__reserve' onClick={props.handleCloseClick}>Cancelar</p>
         </section>
       </div>
     </div>

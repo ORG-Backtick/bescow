@@ -4,6 +4,7 @@ import Gallery from '../../../components/Gallery';
 import '../../../assets/styles/components/DetailsList.scss';
 
 const DetailsList = (props) => {
+  const { handleOpenClick } = props;
   return (
     <section className='details'>
       <Gallery />
@@ -43,7 +44,7 @@ const DetailsList = (props) => {
           </p>
           <p>26 de Sep - 30 de sep</p>
         </div>
-        <button className='button__book' type='submit'>
+        <button className='button__book' type='button' onClick={handleOpenClick}>
           Reservar
         </button>
       </section>
