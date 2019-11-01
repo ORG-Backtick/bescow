@@ -2,7 +2,7 @@ import React from 'react';
 import { BrowserRouter, Route, Switch } from 'react-router-dom';
 import LandingPage from '../pages/LandingPage/LandingPage';
 import SearchPage from '../pages/SearchPage/SearchPage';
-import Reserve from '../components/Reserve';
+import PlaceDetailPage from '../pages/PlaceDetailPage/PlaceDetailPage';
 import '../assets/styles/App.scss';
 
 const Home = () => {
@@ -11,8 +11,7 @@ const Home = () => {
       <Switch>
         <Route exact path='/' component={LandingPage} />
         <Route exact path='/search' component={SearchPage} />
-
-        <Route exact path='/reserve' component={Reserve} />
+        <Route exact path='/cow/:id' component={PlaceDetailPage} />
       </Switch>
     </BrowserRouter>
   );

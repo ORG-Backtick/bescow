@@ -9,4 +9,5 @@ const LayoutSearch = (props) => {
     </main>
   );
 };
+
 export default LayoutSearch;

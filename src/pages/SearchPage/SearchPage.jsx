@@ -10,7 +10,7 @@ import space2 from '../../assets/static/space2_opt.jpg';
 import space3 from '../../assets/static/space3_opt.jpg';
 import space4 from '../../assets/static/space4_opt.jpg';
 
-const SearchPage = () => {
+const SearchPage = (props) => {
   return (
     <LayoutSearch>
       <Header logo={logoColor} origin='isSearch' />
@@ -23,10 +23,10 @@ const SearchPage = () => {
 
       <section className='options__search'>
         <h2 className='options__title'>250 espacios para trabajar</h2>
-        <SearchItem imgCover={space1} />
-        <SearchItem imgCover={space2} />
-        <SearchItem imgCover={space3} />
-        <SearchItem imgCover={space4} />
+        <SearchItem imgCover={space1} props={props} />
+        <SearchItem imgCover={space2} props={props} />
+        <SearchItem imgCover={space3} props={props} />
+        <SearchItem imgCover={space4} props={props} />
       </section>
 
       <section className='maps__search'>

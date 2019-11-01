@@ -1,10 +1,15 @@
 import React from 'react';
 import '../../../assets/styles/components/SearchItem.scss';
 
-const SearchItem = (props) => {
-  const { imgCover } = props;
+const SearchItem = ({ imgCover, props }) => {
+
+  console.log(props);
+  const handleClickCow = () => {
+    props.history.push(`/cow/${1}`);
+  };
+
   return (
-    <div className='options__item'>
+    <div className='options__item' onClick={handleClickCow}>
       <figure className='options__item-figure'>
         <img
           src={imgCover}
