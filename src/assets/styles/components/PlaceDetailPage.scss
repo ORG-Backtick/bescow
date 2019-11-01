@@ -2,7 +2,6 @@
 
 $height-header: 70px;
 $height-details: auto;
-// $height-hero: 1fr;
 $height-footer: 35px;
 $button-main-color: $button-main-color;
 
@@ -14,11 +13,9 @@ body {
   font-family: $font-family;
   box-sizing: border-box;
   display: grid;
-  margin: 0 10px;
   grid-template-rows: $height-header $height-details $height-footer;
   // grid-template-columns: 1.5fr 1fr;
   grid-gap: 5px;
-  // height: 100vh;
   grid-template-areas:
     'header'
     'details'
@@ -28,7 +25,83 @@ body {
 .details {
   display: flex;
   flex-direction: column;
+
+  .description__place {
+    display: flex;
+    flex-direction: column;
+    padding: 15px 15px 0;
+
+    h1{
+      margin: 10px 0;
+    }
+
+    p{
+      margin: 15px 0 20px;
+    }
+  }
+
+  .amenities__place {
+
+    h2 {
+      margin: 10px 0;
+    }
+    
+    .amenities__items {
+      display: flex;
+      flex-wrap: wrap;
+  
+      ul {
+        padding: 15px 25px;
+        margin-right: 20px;
+        border: 1px solid #ebebeb;
+  
+        li {
+          padding: 5px 0;
+        }
+      }
+    }
+  }
+
+  .location__detail {
+    position: relative;
+    height: 250px;
+    box-sizing: border-box;
+    margin-bottom: 15px;
+  }
+
+  .book__place {
+    display: flex;
+    position: sticky;
+    bottom: 0;
+    align-items: center;
+    justify-content: space-around;
+    background: #FFF;
+    padding: 5px 15px 0 15px;
+    border-top: 1px solid #cecdcd;
+    font-weight: 700;
+    
+    p{
+      margin: 8px 0;
+    }
+
+    .button__book {
+      width: fit-content;
+      height: 40px;
+      padding: 5px 30px;
+      font-family: $font-family;
+      border: 0;
+      border-radius: 5px;
+      background: $button-main-color;
+      color: #fff;
+      font-size: 14px;
+      font-weight: 700;
+      outline: none;
+      cursor: pointer;
+    }
+  }
 }
+
+
 
 .filters__search {
   grid-area: filters;
