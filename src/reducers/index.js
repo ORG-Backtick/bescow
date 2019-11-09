@@ -66,11 +66,21 @@ const reducer = (state = initialState, action) => {
       return result;
     };
 
+    case 'SET_SELECTED_COW': {
+      const result = {
+        ...state,
+        selectedCow: action.payload,
+      };
+
+      return result;
+    };
+
     case 'SET_RESERVE': {
       const result = {
         ...state,
         reserve: action.payload.id,
       };
+
       return result;
     };
 

@@ -1,10 +1,14 @@
 import React from 'react';
+import { connect } from 'react-redux';
+import { setSelectedCow } from '../../../actions';
 import '../../../assets/styles/components/SearchItem.scss';
 
 const SearchItem = (props) => {
-  const { id, name, overview, amenities, dayFare, images, country, city } = props;
+  const { id, name, overview, amenities, dayFare, images, country, city } = props.cow;
+
   const handleClickCow = () => {
-    props.history.push(`/cow/${1}`);
+    props.setSelectedCow(props.cow);
+    props.history.push('/cow');
   };
 
   return (
@@ -28,4 +32,10 @@ const SearchItem = (props) => {
     </div>
   );
 };
-export default SearchItem;
+
+const mapDispatchToProps = {
+  setSelectedCow,
+};
+
+export default connect(null, mapDispatchToProps)(SearchItem);
+

@@ -60,7 +60,7 @@ const SearchPage = (props) => {
       <section className='options__search'>
         <h2 className='options__title'>{`${renderCowList.length} ${renderCowList.length > 1 ? 'espacios' : 'espacio'} para trabajar`}</h2>
         {renderCowList.length > 0 &&
-            renderCowList.map((item) => <SearchItem key={item.id} {...item} {...props} />)}
+            renderCowList.map((item) => <SearchItem key={item.id} cow={item} {...props} />)}
       </section>
 
       <section className='maps__search'>

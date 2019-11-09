@@ -28,7 +28,7 @@ const Home = (props) => {
       <Switch>
         <Route exact path='/' component={LandingPage} />
         <Route exact path='/search' component={SearchPage} />
-        <Route exact path='/cow/:id' component={PlaceDetailPage} />
+        <Route exact path='/cow' component={PlaceDetailPage} />
       </Switch>
     </BrowserRouter>
   );

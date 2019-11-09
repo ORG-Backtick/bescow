@@ -68,3 +68,11 @@ export const setCoworkingView = (payload) => {
     payload,
   });
 };
+
+export const setSelectedCow = (payload) => {
+  return ({
+    type: 'SET_SELECTED_COW',
+    payload,
+  });
+};
+
