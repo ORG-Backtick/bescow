@@ -1,9 +1,29 @@
-import React from 'react';
+/* eslint-disable jsx-a11y/control-has-associated-label */
+import React, { useState } from 'react';
+import { connect } from 'react-redux';
+import { setFilterList } from '../../../actions';
 import '../../../assets/styles/components/FormLanding.scss';
 
-const FormLanding = ({ props }) => {
+const FormLanding = (props) => {
+  const { locationListAvailable, search } = props;
+
+  const [form, setForm] = useState({
+    formWhere: '',
+    formDateCheckin: '',
+    formDateCheckout: '',
+    formCow: 1,
+  });
+
+  const handleInput = (event) => {
+    setForm({
+      ...form,
+      [event.target.name]: event.target.value,
+    });
+  };
+
   const handleSubmit = (event) => {
     event.preventDefault();
+    props.setFilterList(form);
     props.history.push('/search');
   };
 
@@ -19,11 +39,21 @@ const FormLanding = ({ props }) => {
         </label>
         <input
           className='hero__input'
+          list='locationListAvailable'
           type='text'
           name='formWhere'
           id='formWhere'
           placeholder='Dónde'
+          onChange={handleInput}
         />
+        <datalist id='locationListAvailable'>
+          { locationListAvailable &&
+              (locationListAvailable.length > 0 && (
+                locationListAvailable.map((item) => {
+                  return <option key={item} value={item} />;
+                })
+              ))}
+        </datalist>
 
         <div className='hero__form-date-container'>
           <div className='hero__date-checkin'>
@@ -36,6 +66,7 @@ const FormLanding = ({ props }) => {
               name='formDateCheckin'
               id='formDateCheckin'
               placeholder='dd/mm/aaaa'
+              onChange={handleInput}
             />
           </div>
           <div className='hero__date-checkout'>
@@ -48,6 +79,7 @@ const FormLanding = ({ props }) => {
               name='formDateCheckout'
               id='formDateCheckout'
               placeholder='dd/mm/aaaa'
+              onChange={handleInput}
             />
           </div>
         </div>
@@ -61,6 +93,8 @@ const FormLanding = ({ props }) => {
           name='formCow'
           id='formCow'
           placeholder='Coworkers'
+          defaultValue={search.coworkers}
+          onChange={handleInput}
         />
 
         <button className='hero__button-first' type='submit'>
@@ -70,4 +104,16 @@ const FormLanding = ({ props }) => {
     </section>
   );
 };
-export default FormLanding;
+
+const mapStateToProps = (state) => {
+  return {
+    locationListAvailable: state.locationListAvailable,
+    search: state.search,
+  };
+};
+
+const mapDispatchToProps = {
+  setFilterList,
+};
+
+export default connect(mapStateToProps, mapDispatchToProps)(FormLanding);

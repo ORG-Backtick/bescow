@@ -9,7 +9,7 @@ const LandingPage = (props) => {
   return (
     <LayoutLanding>
       <Header logo={logo} origin='isLanding' />
-      <FormLanding props={props} />
+      <FormLanding {...props} />
       <Footer origin='isLanding' />
     </LayoutLanding>
   );

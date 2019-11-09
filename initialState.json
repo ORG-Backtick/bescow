@@ -20,7 +20,7 @@
           "long": -99.171579,
           "name": "WeWork Insurgentes"
         },
-        "county": "México",
+        "country": "México",
         "city": "Ciudad de México",
         "images": [
           "https://s3.us-east-2.amazonaws.com/bescow.cow/space1.1_opt.jpg",
@@ -47,8 +47,8 @@
           "long": -99.203733,
           "name": "IOS OFFICES VIRREYES"
         },
-        "county": "México",
-        "city": "Ciudad de México",
+        "country": "México",
+        "city": "Estado de México",
         "images": [
           "https://s3.us-east-2.amazonaws.com/bescow.cow/space2.1_opt.jpg",
           "https://s3.us-east-2.amazonaws.com/bescow.cow/space2.2_opt.jpg",
@@ -74,8 +74,8 @@
           "long": -99.141476,
           "name": "Selina Cowork"
         },
-        "county": "México",
-        "city": "Ciudad de México",
+        "country": "México",
+        "city": "Guadalajara",
         "images": [
           "https://s3.us-east-2.amazonaws.com/bescow.cow/space3.1_opt.jpg",
           "https://s3.us-east-2.amazonaws.com/bescow.cow/space3.2_opt.jpg",

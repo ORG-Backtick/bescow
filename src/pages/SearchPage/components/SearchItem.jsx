@@ -2,6 +2,7 @@ import React from 'react';
 import '../../../assets/styles/components/SearchItem.scss';
 
 const SearchItem = (props) => {
+  console.log(props);
   const { id, name, overview, amenities, dayFare, images } = props;
   const handleClickCow = () => {
     props.history.push(`/cow/${1}`);

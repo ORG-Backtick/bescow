@@ -1,7 +1,13 @@
 const initialState = {
   coworkingList: undefined,
-  reserve: undefined,
+  selectedCow: undefined,
   filterList: undefined,
+  search: {
+    location: undefined,
+    date: undefined,
+    coworkers: 1,
+  },
+  locationListAvailable: undefined,
   loaded: false,
   loading: false,
   error: null,
@@ -19,9 +25,18 @@ const reducer = (state = initialState, action) => {
     };
 
     case 'GET_PRODUCTS_SUCCESS': {
+      let listLocation = [];
+      let coworkingList = [];
+      if (action.payload) {
+        coworkingList = action.payload;
+        listLocation = coworkingList.map((item) => `${item.city} - ${item.country}`);
+        listLocation = [...new Set(listLocation)];
+      }
+
       const result = {
         ...state,
-        coworkingList: action.payload,
+        coworkingList,
+        locationListAvailable: listLocation,
         loaded: true,
         loading: false,
       };
@@ -33,6 +48,14 @@ const reducer = (state = initialState, action) => {
         ...state,
         error: action.payload,
         loading: false,
+      };
+      return result;
+    };
+
+    case 'SET_FILTER_LIST': {
+      const result = {
+        ...state,
+        filterList: action.payload,
       };
       return result;
     };

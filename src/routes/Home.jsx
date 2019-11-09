@@ -8,7 +8,6 @@ import PlaceDetailPage from '../pages/PlaceDetailPage/PlaceDetailPage';
 import '../assets/styles/App.scss';
 
 const Home = (props) => {
-
   useEffect(() => {
     props.gettingProducts();
     try {
@@ -20,7 +19,6 @@ const Home = (props) => {
 
       fetchData();
     } catch (error) {
-      console.log(error);
       props.getProductsError(error.message);
     }
   }, []);

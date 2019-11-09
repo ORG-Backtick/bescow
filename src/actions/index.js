@@ -20,6 +20,13 @@ export const getProductsError = (payload) => {
   });
 };
 
+export const setFilterList = (payload) => {
+  return ({
+    type: 'SET_FILTER_LIST',
+    payload,
+  });
+};
+
 export const setReserve = (payload) => {
   return ({
     type: 'SET_RESERVE',
