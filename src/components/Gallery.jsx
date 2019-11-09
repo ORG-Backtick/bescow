@@ -1,8 +1,8 @@
 import React from 'react';
 import '../assets/styles/components/Gallery.scss';
-import place1 from '../assets/static/place1_1.jpg';
-import place2 from '../assets/static/place1_2.jpg';
-import place3 from '../assets/static/place1_3.jpg';
+import place1 from '../assets/static/space3.1_opt.jpg';
+import place2 from '../assets/static/space1.1_opt.jpg';
+import place3 from '../assets/static/space1.2_opt.jpg';
 
 const Gallery = (props) => {
   return (

@@ -1,16 +1,16 @@
 import React from 'react';
+import { connect } from 'react-redux';
 import LayoutSearch from './LayoutSearch';
 import Header from '../../components/Header';
 import Footer from '../../components/Footer';
 import SearchItem from './components/SearchItem';
 import MapComponent from '../../containers/MapComponent';
 import logoColor from '../../assets/static/logoCow_Colors.svg';
-import space1 from '../../assets/static/space1_opt.jpg';
-import space2 from '../../assets/static/space2_opt.jpg';
-import space3 from '../../assets/static/space3_opt.jpg';
-import space4 from '../../assets/static/space4_opt.jpg';
 
 const SearchPage = (props) => {
+  const { coworkingList } = props;
+  console.log(coworkingList);
+
   return (
     <LayoutSearch>
       <Header logo={logoColor} origin='isSearch' />
@@ -23,10 +23,13 @@ const SearchPage = (props) => {
 
       <section className='options__search'>
         <h2 className='options__title'>250 espacios para trabajar</h2>
-        <SearchItem imgCover={space1} props={props} />
-        <SearchItem imgCover={space2} props={props} />
-        <SearchItem imgCover={space3} props={props} />
-        <SearchItem imgCover={space4} props={props} />
+        {coworkingList && (
+          coworkingList.length > 0 && (
+            coworkingList.map((item) => (
+              <SearchItem key={item.id} {...item} />
+            ))
+          )
+        )}
       </section>
 
       <section className='maps__search'>
@@ -37,4 +40,10 @@ const SearchPage = (props) => {
     </LayoutSearch>
   );
 };
-export default SearchPage;
+const mapStateToProps = (state) => {
+  return {
+    coworkingList: state.coworkingList,
+  };
+};
+
+export default connect(mapStateToProps, null)(SearchPage);

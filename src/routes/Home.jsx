@@ -1,11 +1,30 @@
-import React from 'react';
+import React, { useEffect } from 'react';
+import { connect } from 'react-redux';
 import { BrowserRouter, Route, Switch } from 'react-router-dom';
+import { gettingProducts, getProductsError, getProductsSuccess } from '../actions';
 import LandingPage from '../pages/LandingPage/LandingPage';
 import SearchPage from '../pages/SearchPage/SearchPage';
 import PlaceDetailPage from '../pages/PlaceDetailPage/PlaceDetailPage';
 import '../assets/styles/App.scss';
 
-const Home = () => {
+const Home = (props) => {
+
+  useEffect(() => {
+    props.gettingProducts();
+    try {
+      const fetchData = async () => {
+        const response = await fetch('http://localhost:3000/initialState');
+        const data = await response.json();
+        props.getProductsSuccess(data.coworkingList);
+      };
+
+      fetchData();
+    } catch (error) {
+      console.log(error);
+      props.getProductsError(error.message);
+    }
+  }, []);
+
   return (
     <BrowserRouter>
       <Switch>
@@ -16,4 +35,11 @@ const Home = () => {
     </BrowserRouter>
   );
 };
-export default Home;
+
+const mapDispatchToProps = {
+  gettingProducts,
+  getProductsSuccess,
+  getProductsError,
+};
+
+export default connect(null, mapDispatchToProps)(Home);

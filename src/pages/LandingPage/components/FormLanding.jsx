@@ -2,7 +2,6 @@ import React from 'react';
 import '../../../assets/styles/components/FormLanding.scss';
 
 const FormLanding = ({ props }) => {
-  console.log(props);
   const handleSubmit = (event) => {
     event.preventDefault();
     props.history.push('/search');
