@@ -2,11 +2,7 @@ const initialState = {
   coworkingList: undefined,
   selectedCow: undefined,
   filterList: undefined,
-  search: {
-    location: undefined,
-    date: undefined,
-    coworkers: 1,
-  },
+  filteredCowList: undefined,
   locationListAvailable: undefined,
   loaded: false,
   loading: false,
@@ -56,6 +52,16 @@ const reducer = (state = initialState, action) => {
       const result = {
         ...state,
         filterList: action.payload,
+      };
+      return result;
+    };
+
+    case 'SET_FILTERED_COW_LIST': {
+      const arrayLocation = action.payload.split('-');
+      const filteredCowList = state.coworkingList.filter((item) => (item.city === arrayLocation[0].trim() && item.country === arrayLocation[1].trim()));
+      const result = {
+        ...state,
+        filteredCowList,
       };
       return result;
     };

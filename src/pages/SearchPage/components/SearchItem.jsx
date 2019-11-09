@@ -2,8 +2,7 @@ import React from 'react';
 import '../../../assets/styles/components/SearchItem.scss';
 
 const SearchItem = (props) => {
-  console.log(props);
-  const { id, name, overview, amenities, dayFare, images } = props;
+  const { id, name, overview, amenities, dayFare, images, country, city } = props;
   const handleClickCow = () => {
     props.history.push(`/cow/${1}`);
   };
@@ -21,7 +20,10 @@ const SearchItem = (props) => {
           <li className='details__amenities-item'>{amenities[1]}</li>
           <li className='details__amenities-item'>{amenities[2]}</li>
         </ul>
-        <p className='details__price'>{`$${dayFare} MXN/día`}</p>
+        <div className='details__footer'>
+          <p className='details__location'>{`${city} -  ${country}`}</p>
+          <p className='details__price'>{`$${dayFare} MXN/día`}</p>
+        </div>
       </div>
     </div>
   );

@@ -27,6 +27,13 @@ export const setFilterList = (payload) => {
   });
 };
 
+export const setFilteredCowList = (payload) => {
+  return ({
+    type: 'SET_FILTERED_COW_LIST',
+    payload,
+  });
+};
+
 export const setReserve = (payload) => {
   return ({
     type: 'SET_RESERVE',

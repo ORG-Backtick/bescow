@@ -5,13 +5,13 @@ import { setFilterList } from '../../../actions';
 import '../../../assets/styles/components/FormLanding.scss';
 
 const FormLanding = (props) => {
-  const { locationListAvailable, search } = props;
+  const { locationListAvailable, filterList } = props;
 
   const [form, setForm] = useState({
-    formWhere: '',
-    formDateCheckin: '',
-    formDateCheckout: '',
-    formCow: 1,
+    formWhere: filterList ? filterList.formWhere : '',
+    formDateCheckin: filterList ? filterList.formDateCheckin : '',
+    formDateCheckout: filterList ? filterList.formDateCheckout : '',
+    formCow: filterList ? filterList.formCow : 1,
   });
 
   const handleInput = (event) => {
@@ -45,6 +45,7 @@ const FormLanding = (props) => {
           id='formWhere'
           placeholder='Dónde'
           onChange={handleInput}
+          defaultValue={filterList ? filterList.formWhere : ''}
         />
         <datalist id='locationListAvailable'>
           { locationListAvailable &&
@@ -67,6 +68,7 @@ const FormLanding = (props) => {
               id='formDateCheckin'
               placeholder='dd/mm/aaaa'
               onChange={handleInput}
+              defaultValue={filterList ? filterList.formDateCheckin : ''}
             />
           </div>
           <div className='hero__date-checkout'>
@@ -80,6 +82,7 @@ const FormLanding = (props) => {
               id='formDateCheckout'
               placeholder='dd/mm/aaaa'
               onChange={handleInput}
+              defaultValue={filterList ? filterList.formDateCheckout : ''}
             />
           </div>
         </div>
@@ -93,7 +96,7 @@ const FormLanding = (props) => {
           name='formCow'
           id='formCow'
           placeholder='Coworkers'
-          defaultValue={search.coworkers}
+          defaultValue={filterList ? filterList.formCow : '1'}
           onChange={handleInput}
         />
 
@@ -108,7 +111,7 @@ const FormLanding = (props) => {
 const mapStateToProps = (state) => {
   return {
     locationListAvailable: state.locationListAvailable,
-    search: state.search,
+    filterList: state.filterList,
   };
 };
 

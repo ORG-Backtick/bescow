@@ -1,5 +1,6 @@
-import React from 'react';
+import React, { useEffect } from 'react';
 import { connect } from 'react-redux';
+import { setFilteredCowList } from '../../actions';
 import LayoutSearch from './LayoutSearch';
 import Header from '../../components/Header';
 import Footer from '../../components/Footer';
@@ -8,7 +9,28 @@ import MapComponent from '../../containers/MapComponent';
 import logoColor from '../../assets/static/logoCow_Colors.svg';
 
 const SearchPage = (props) => {
-  const { coworkingList, filterList } = props;
+  const { coworkingList, filterList, filteredCowList } = props;
+  let renderCowList = [];
+
+  useEffect(() => {
+    if (filterList) {
+      props.setFilteredCowList(filterList.formWhere);
+    }
+  }, []);
+
+  if (filteredCowList) {
+    if (filteredCowList.length > 0) {
+      renderCowList = filteredCowList;
+    }
+  }
+
+  if (renderCowList.length <= 0) {
+    if (coworkingList) {
+      if (coworkingList.length > 0) {
+        renderCowList = coworkingList;
+      }
+    }
+  }
 
   return (
     <LayoutSearch>
@@ -36,28 +58,32 @@ const SearchPage = (props) => {
       </section>
 
       <section className='options__search'>
-        <h2 className='options__title'>250 espacios para trabajar</h2>
-        {coworkingList &&
-          (coworkingList.length > 0 &&
-            coworkingList.map((item) => <SearchItem key={item.id} {...item} {...props} />))}
+        <h2 className='options__title'>{`${renderCowList.length} ${renderCowList.length > 1 ? 'espacios' : 'espacio'} para trabajar`}</h2>
+        {renderCowList.length > 0 &&
+            renderCowList.map((item) => <SearchItem key={item.id} {...item} {...props} />)}
       </section>
 
       <section className='maps__search'>
-        <MapComponent />
+        {renderCowList.length > 0 && (
+          <MapComponent locations={renderCowList} />
+        )}
       </section>
 
       <Footer origin='isSearch' />
     </LayoutSearch>
   );
 };
+
 const mapStateToProps = (state) => {
   return {
     coworkingList: state.coworkingList,
     filterList: state.filterList,
+    filteredCowList: state.filteredCowList,
   };
 };
 
-export default connect(
-  mapStateToProps,
-  null,
-)(SearchPage);
+const mapDispatchToProps = {
+  setFilteredCowList,
+};
+
+export default connect(mapStateToProps, mapDispatchToProps)(SearchPage);
