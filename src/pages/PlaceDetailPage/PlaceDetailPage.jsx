@@ -6,12 +6,14 @@ import Footer from '../../components/Footer';
 import logo from '../../assets/static/logoCow_Colors.svg';
 import LayoutPlaceDetail from './LayoutPlaceDetail';
 import Reserve from '../../components/Reserve';
+import { setSelectedCow } from '../../actions';
 
 class PlaceDetailPage extends React.Component {
   constructor(props) {
     super(props);
     this.state = {
       reserveVisible: false,
+      selectedCow: props.selectedCow || props.location.state.cow,
     };
   }
 
@@ -28,8 +30,8 @@ class PlaceDetailPage extends React.Component {
   };
 
   render() {
-    const { reserveVisible } = this.state;
-    const { selectedCow } = this.props;
+    const { reserveVisible, selectedCow } = this.state;
+    console.log(selectedCow)
 
     return (
       <LayoutPlaceDetail>
@@ -50,4 +52,8 @@ const mapStateToProps = (state) => {
   };
 };
 
-export default connect(mapStateToProps, null)(PlaceDetailPage);
+const mapDispatchToProps = {
+  setSelectedCow,
+};
+
+export default connect(mapStateToProps, mapDispatchToProps)(PlaceDetailPage);

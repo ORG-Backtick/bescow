@@ -4,12 +4,14 @@ import '../assets/styles/Icons.css';
 
 const Reserve = (props) => {
 
+  const {handleCloseClick, detail} = props;
+
   return (
     <div className='overlay__reserve'>
       <div className='reserve__container'>
         <section className='reserve'>
           <div className='close'>
-            <i className='icon-close icon' onClick={props.handleCloseClick} />
+            <i className='icon-close icon' onClick={handleCloseClick} />
           </div>
           <h1 className='title__reserve'>Confirmar Reserva</h1>
           <p className='title__fare-reserve'>
@@ -39,7 +41,7 @@ const Reserve = (props) => {
           <button type='button' className='button button__reserve'>
             Reservar
           </button>
-          <p className='cancel__reserve' onClick={props.handleCloseClick}>Cancelar</p>
+          <p className='cancel__reserve' onClick={handleCloseClick}>Cancelar</p>
         </section>
       </div>
     </div>

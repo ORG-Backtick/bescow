@@ -8,7 +8,12 @@ const SearchItem = (props) => {
 
   const handleClickCow = () => {
     props.setSelectedCow(props.cow);
-    props.history.push('/cow');
+    props.history.push('/cow', { cow: props.cow });
+    // ({
+    //   pathname: '/cow',
+    //   state: { cow: props.cow },
+    //   setSelectedCow: props.cow,
+    // });
   };
 
   return (
