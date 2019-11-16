@@ -1,7 +1,5 @@
 import React from 'react';
 import { connect } from 'react-redux';
-import moment from 'moment';
-
 import Header from '../../components/Header';
 import DetailsList from './componentes/DetailsList';
 import Footer from '../../components/Footer';

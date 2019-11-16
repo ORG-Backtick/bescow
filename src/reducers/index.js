@@ -106,14 +106,16 @@ const reducer = (state = initialState, action) => {
     case 'SET_COST_DETAIL': {
       const { cow, filterList } = action.payload;
       let dateCount = 1;
-      if (filterList.formDateCheckin) {
+
+      if (filterList && filterList.formDateCheckin) {
         const date1 = moment(filterList.formDateCheckin);
         const date2 = moment(filterList.formDateCheckout);
 
         dateCount = (date2.diff(date1, 'days') + 1);
       } else {
-        filterList.formDateCheckin = moment().add(1, 'days').format('DD-MM-YYYY');
-        filterList.formDateCheckout = moment().add(1, 'days').format('DD-MM-YYYY');
+        const dayDefault = moment().add(1, 'days').format('DD-MM-YYYY');
+        filterList['formDateCheckin'] = dayDefault;
+        filterList['formDateCheckout'] = dayDefault;
       }
 
       const cost = dateCount * cow.dayFare * filterList.formCow;
