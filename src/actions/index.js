@@ -120,3 +120,9 @@ export const setSelectedCow = (payload) => {
   });
 };
 
+export const setCostDetail = (payload) => {
+  return ({
+    type: 'SET_COST_DETAIL',
+    payload,
+  });
+};

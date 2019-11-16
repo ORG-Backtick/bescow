@@ -4,42 +4,46 @@ import '../assets/styles/Icons.css';
 
 const Reserve = (props) => {
 
+  const { handleCloseClick, costDetail } = props;
+  const { date, total, dayCost, days } = costDetail;
+
   return (
     <div className='overlay__reserve'>
       <div className='reserve__container'>
         <section className='reserve'>
           <div className='close'>
-            <i className='icon-close icon' onClick={props.handleCloseClick} />
+            <i className='icon-close icon' onClick={handleCloseClick} />
           </div>
           <h1 className='title__reserve'>Confirmar Reserva</h1>
           <p className='title__fare-reserve'>
-            $180
+            {`$${dayCost}`}
             <span> MXN/día</span>
           </p>
           <hr className='line' />
           <label className='label__title-reserve' >Fechas</label>
           <div className='date__detail-reserve'>
-            <span>26/10/2019</span>
+            <span>{date.formDateCheckin}</span>
             <i>----</i>
-            <span>27/10/2019</span>
+            <span>{date.formDateCheckout}</span>
           </div>
           <label className='label__title-reserve'>Coworkers</label>
           <div className='coworkers'>
-            <span>1 coworker</span>
+            <span>{date.formCow}</span>
+            <span> coworker</span>
           </div>
           <div className='summary__reserve'>
-            <div><span>$180 x 1 día</span></div>
-            <div><span>$180</span></div>
+            <div><span>{`$${dayCost * date.formCow} x ${days} día`}</span></div>
+            <div><span>{total}</span></div>
           </div>
           <hr className='line' />
           <div className='total__reserve'>
             <p>Total:</p>
-            <p>$180</p>
+            <p>{`$ ${total}`}</p>
           </div>
           <button type='button' className='button button__reserve'>
             Reservar
           </button>
-          <p className='cancel__reserve' onClick={props.handleCloseClick}>Cancelar</p>
+          <p className='cancel__reserve' onClick={handleCloseClick}>Cancelar</p>
         </section>
       </div>
     </div>

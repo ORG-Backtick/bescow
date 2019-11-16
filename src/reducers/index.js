@@ -1,9 +1,12 @@
+import moment from 'moment';
+
 const initialState = {
   user: {},
   coworkingList: undefined,
   selectedCow: undefined,
   filterList: undefined,
   filteredCowList: undefined,
+  costDetail: undefined,
   locationListAvailable: undefined,
   loaded: false,
   loading: false,
@@ -60,6 +63,7 @@ const reducer = (state = initialState, action) => {
     case 'SET_FILTERED_COW_LIST': {
       const arrayLocation = action.payload.split('-');
       const filteredCowList = state.coworkingList.filter((item) => (item.city === arrayLocation[0].trim() && item.country === arrayLocation[1].trim()));
+      
       const result = {
         ...state,
         filteredCowList,
@@ -97,6 +101,30 @@ const reducer = (state = initialState, action) => {
         ...state,
         user: action.payload,
       };
+    };
+
+    case 'SET_COST_DETAIL': {
+      const { cow, filterList } = action.payload;
+      let dateCount = 1;
+
+      if (filterList && filterList.formDateCheckin) {
+        const date1 = moment(filterList.formDateCheckin);
+        const date2 = moment(filterList.formDateCheckout);
+
+        dateCount = (date2.diff(date1, 'days') + 1);
+      } else {
+        const dayDefault = moment().add(1, 'days').format('DD-MM-YYYY');
+        filterList['formDateCheckin'] = dayDefault;
+        filterList['formDateCheckout'] = dayDefault;
+      }
+
+      const cost = dateCount * cow.dayFare * filterList.formCow;
+      const result = {
+        ...state,
+        costDetail: { date: filterList, total: cost, dayCost: cow.dayFare, days: dateCount },
+      };
+
+      return result;
     };
 
     default:

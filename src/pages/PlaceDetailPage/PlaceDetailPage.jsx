@@ -6,12 +6,15 @@ import Footer from '../../components/Footer';
 import logo from '../../assets/static/logoCow_Colors.svg';
 import LayoutPlaceDetail from './LayoutPlaceDetail';
 import Reserve from '../../components/Reserve';
+import { setSelectedCow } from '../../actions';
 
 class PlaceDetailPage extends React.Component {
   constructor(props) {
     super(props);
     this.state = {
       reserveVisible: false,
+      selectedCow: props.selectedCow || props.location.state.cow,
+      costDetail: props.costDetail,
     };
   }
 
@@ -28,16 +31,15 @@ class PlaceDetailPage extends React.Component {
   };
 
   render() {
-    const { reserveVisible } = this.state;
-    const { selectedCow } = this.props;
+    const { reserveVisible, selectedCow, costDetail } = this.state;
 
     return (
       <LayoutPlaceDetail>
         <Header logo={logo} origin='isSearch' />
-        <DetailsList handleOpenClick={this.handleOpenReserve} selectedCow={selectedCow} />
+        <DetailsList handleOpenClick={this.handleOpenReserve} selectedCow={selectedCow} costDetail={costDetail} />
         <Footer origin='isSearch' />
         {reserveVisible && (
-          <Reserve handleCloseClick={this.handleCloseReserve} />
+          <Reserve handleCloseClick={this.handleCloseReserve} detail={selectedCow} costDetail={costDetail} />
         )}
       </LayoutPlaceDetail>
     );
@@ -47,7 +49,13 @@ class PlaceDetailPage extends React.Component {
 const mapStateToProps = (state) => {
   return {
     selectedCow: state.selectedCow,
+    filterList: state.filterList,
+    costDetail: state.costDetail,
   };
 };
 
-export default connect(mapStateToProps, null)(PlaceDetailPage);
+const mapDispatchToProps = {
+  setSelectedCow,
+};
+
+export default connect(mapStateToProps, mapDispatchToProps)(PlaceDetailPage);
