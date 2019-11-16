@@ -35,7 +35,7 @@ class MapComponent extends React.Component {
         {this.locations.map((item) => {
           return (
             <Marker
-              key={item.id}
+              key={item._id}
               title={item.location.name}
               name={item.location.name}
               position={{ lat: item.location.lat, lng: item.location.long }}

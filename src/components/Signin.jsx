@@ -20,7 +20,6 @@ const Signin = (props) => {
   const handleSubmit = (event) => {
     event.preventDefault();
     loginUser(form);
-    // props.handleCloseClick();
   };
 
   return (
