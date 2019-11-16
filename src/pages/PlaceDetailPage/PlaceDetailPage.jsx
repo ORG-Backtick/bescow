@@ -1,5 +1,7 @@
 import React from 'react';
 import { connect } from 'react-redux';
+import moment from 'moment';
+
 import Header from '../../components/Header';
 import DetailsList from './componentes/DetailsList';
 import Footer from '../../components/Footer';
@@ -14,6 +16,7 @@ class PlaceDetailPage extends React.Component {
     this.state = {
       reserveVisible: false,
       selectedCow: props.selectedCow || props.location.state.cow,
+      costDetail: props.costDetail,
     };
   }
 
@@ -30,16 +33,15 @@ class PlaceDetailPage extends React.Component {
   };
 
   render() {
-    const { reserveVisible, selectedCow } = this.state;
-    console.log(selectedCow)
+    const { reserveVisible, selectedCow, costDetail } = this.state;
 
     return (
       <LayoutPlaceDetail>
         <Header logo={logo} origin='isSearch' />
-        <DetailsList handleOpenClick={this.handleOpenReserve} selectedCow={selectedCow} />
+        <DetailsList handleOpenClick={this.handleOpenReserve} selectedCow={selectedCow} costDetail={costDetail} />
         <Footer origin='isSearch' />
         {reserveVisible && (
-          <Reserve handleCloseClick={this.handleCloseReserve} />
+          <Reserve handleCloseClick={this.handleCloseReserve} detail={selectedCow} costDetail={costDetail} />
         )}
       </LayoutPlaceDetail>
     );
@@ -49,6 +51,8 @@ class PlaceDetailPage extends React.Component {
 const mapStateToProps = (state) => {
   return {
     selectedCow: state.selectedCow,
+    filterList: state.filterList,
+    costDetail: state.costDetail,
   };
 };
 

@@ -1,6 +1,6 @@
 import React from 'react';
 import { connect } from 'react-redux';
-import { setSelectedCow } from '../../../actions';
+import { setSelectedCow, setCostDetail } from '../../../actions';
 import '../../../assets/styles/components/SearchItem.scss';
 
 const SearchItem = (props) => {
@@ -8,6 +8,8 @@ const SearchItem = (props) => {
 
   const handleClickCow = () => {
     props.setSelectedCow(props.cow);
+    props.setCostDetail({ cow: props.cow, filterList: props.filterList });
+
     props.history.push('/cow', { cow: props.cow });
     // ({
     //   pathname: '/cow',
@@ -40,6 +42,7 @@ const SearchItem = (props) => {
 
 const mapDispatchToProps = {
   setSelectedCow,
+  setCostDetail,
 };
 
 export default connect(null, mapDispatchToProps)(SearchItem);

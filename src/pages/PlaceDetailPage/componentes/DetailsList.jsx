@@ -4,7 +4,8 @@ import Gallery from '../../../components/Gallery';
 import '../../../assets/styles/components/DetailsList.scss';
 
 const DetailsList = (props) => {
-  const { handleOpenClick, selectedCow } = props;
+  const { handleOpenClick, selectedCow, costDetail } = props;
+  const { date, total } = costDetail;
 
   return (
     <section className='details'>
@@ -37,9 +38,10 @@ const DetailsList = (props) => {
         <div>
           <p>
             <span>Total: </span>
-            $360 MXN
+            {`$ ${total} MXN`}
           </p>
-          <p>26 de Sep - 30 de sep</p>
+          {/* <p>26 de Sep - 30 de sep</p> */}
+          { `${date.formDateCheckin} - ${date.formDateCheckout}`}
         </div>
         <button className='button__book' type='button' onClick={handleOpenClick}>
           Reservar
