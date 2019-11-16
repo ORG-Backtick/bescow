@@ -1,10 +1,11 @@
 import React from 'react';
+import { connect } from 'react-redux';
 import Header from '../../components/Header';
 import DetailsList from './componentes/DetailsList';
 import Footer from '../../components/Footer';
 import logo from '../../assets/static/logoCow_Colors.svg';
 import LayoutPlaceDetail from './LayoutPlaceDetail';
-import Reserve from '../../components/reserve';
+import Reserve from '../../components/Reserve';
 
 class PlaceDetailPage extends React.Component {
   constructor(props) {
@@ -28,11 +29,12 @@ class PlaceDetailPage extends React.Component {
 
   render() {
     const { reserveVisible } = this.state;
+    const { selectedCow } = this.props;
 
     return (
       <LayoutPlaceDetail>
         <Header logo={logo} origin='isSearch' />
-        <DetailsList handleOpenClick={this.handleOpenReserve} />
+        <DetailsList handleOpenClick={this.handleOpenReserve} selectedCow={selectedCow} />
         <Footer origin='isSearch' />
         {reserveVisible && (
           <Reserve handleCloseClick={this.handleCloseReserve} />
@@ -42,4 +44,10 @@ class PlaceDetailPage extends React.Component {
   }
 }
 
-export default PlaceDetailPage;
+const mapStateToProps = (state) => {
+  return {
+    selectedCow: state.selectedCow,
+  };
+};
+
+export default connect(mapStateToProps, null)(PlaceDetailPage);

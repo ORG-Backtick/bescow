@@ -4,36 +4,33 @@ import Gallery from '../../../components/Gallery';
 import '../../../assets/styles/components/DetailsList.scss';
 
 const DetailsList = (props) => {
-  const { handleOpenClick } = props;
+  const { handleOpenClick, selectedCow } = props;
+
   return (
     <section className='details'>
-      <Gallery />
+      <Gallery images={selectedCow.images} />
       <div className='description__place'>
-        <h1>Avenida Chapultepec 360</h1>
+        <h1>{selectedCow.name}</h1>
         <p className='overview__place'>
-          Colabora is a shared office space primarily directed at Mexican
-          entrepreneurs. Created and managed by young people who seek to find in
-          their work areas a comfortable, youthful and pleasant space that
-          generates added value both to their companies and to all the people
-          who work in it through the support and promotion of creative ideas.
+          {selectedCow.description}
         </p>
         <div className='amenities__place'>
           <h2>Comodidades:</h2>
           <div className='amenities__items'>
             <ul>
-              <li>Internet Alta Velocidad</li>
-              <li>Almuerzo incluido</li>
-              <li>Parqueadero</li>
+              <li>{selectedCow.amenities[0]}</li>
+              <li>{selectedCow.amenities[1]}</li>
+              <li>{selectedCow.amenities[2]}</li>
             </ul>
             <ul>
-              <li>Impresora</li>
-              <li>Aire acondicionado</li>
-              <li>Lockers Personales</li>
+              <li>{selectedCow.amenities[3]}</li>
+              <li>{selectedCow.amenities[4]}</li>
+              <li>{selectedCow.amenities[5]}</li>
             </ul>
           </div>
         </div>
         <div className='location__detail'>
-          <MapComponent />
+          <MapComponent locations={[selectedCow]} />
         </div>
       </div>
       <section className='book__place'>

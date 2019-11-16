@@ -1,35 +1,41 @@
 import React from 'react';
+import { connect } from 'react-redux';
+import { setSelectedCow } from '../../../actions';
 import '../../../assets/styles/components/SearchItem.scss';
 
-const SearchItem = ({ imgCover, props }) => {
+const SearchItem = (props) => {
+  const { id, name, overview, amenities, dayFare, images, country, city } = props.cow;
 
-  console.log(props);
   const handleClickCow = () => {
-    props.history.push(`/cow/${1}`);
+    props.setSelectedCow(props.cow);
+    props.history.push('/cow');
   };
 
   return (
     <div className='options__item' onClick={handleClickCow}>
       <figure className='options__item-figure'>
-        <img
-          src={imgCover}
-          alt='Avenida Chapu 360'
-          className='options__item-img'
-        />
+        <img src={images[0]} alt={name} className='options__item-img' />
       </figure>
       <div className='options__item-details'>
-        <h3 className='details__title'>Avenida Chapultepec 360</h3>
-        <p className='details__description'>
-          Excelente espacio para trabajar comodo y bien ubicado
-        </p>
+        <h3 className='details__title'>{name}</h3>
+        <p className='details__description'>{overview}</p>
         <ul className='details__amenities'>
-          <li className='details__amenities-item'>Internet Alta Velocidad</li>
-          <li className='details__amenities-item'>Restaurante</li>
-          <li className='details__amenities-item'>Parqueadero</li>
+          <li className='details__amenities-item'>{amenities[0]}</li>
+          <li className='details__amenities-item'>{amenities[1]}</li>
+          <li className='details__amenities-item'>{amenities[2]}</li>
         </ul>
-        <p className='details__price'>$180 MXN/día</p>
+        <div className='details__footer'>
+          <p className='details__location'>{`${city} -  ${country}`}</p>
+          <p className='details__price'>{`$${dayFare} MXN/día`}</p>
+        </div>
       </div>
     </div>
   );
 };
-export default SearchItem;
+
+const mapDispatchToProps = {
+  setSelectedCow,
+};
+
+export default connect(null, mapDispatchToProps)(SearchItem);
+

@@ -13,7 +13,7 @@ const Reserve = (props) => {
           </div>
           <h1 className='title__reserve'>Confirmar Reserva</h1>
           <p className='title__fare-reserve'>
-            $ 180 
+            $180
             <span> MXN/día</span>
           </p>
           <hr className='line' />

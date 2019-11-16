@@ -1,8 +1,28 @@
-import React from 'react';
+import React, { useState } from 'react';
+import { connect } from 'react-redux';
+import { registerUser } from '../actions';
 import '../assets/styles/components/Register.scss';
 import '../assets/styles/Icons.css';
 
 const Register = (props) => {
+  const { registerUser } = props;
+
+  const [form, setForm] = useState({
+    email: '',
+  });
+
+  const handleInput = (event) => {
+    setForm({
+      ...form,
+      [event.target.name]: event.target.value,
+    });
+  };
+
+  const handleSubmit = (event) => {
+    event.preventDefault();
+    registerUser(form);
+  };
+
   return (
     <div className='overlay__register'>
       <div className='register__container'>
@@ -23,22 +43,24 @@ const Register = (props) => {
             Continuar con Google
           </button>
           <hr className='line' />
-          <form action='' className='form'>
+          <form onSubmit={handleSubmit} className='form'>
             <input
+              name='email'
               type='email'
               className='input'
               placeholder='Dirección de correo electrónico'
+              onChange={handleInput}
             />
-            <input type='text' className='input' placeholder='Nombre' />
-            <input type='text' className='input' placeholder='Apellido' />
+            <input name='firstName' type='text' className='input' placeholder='Nombre' onChange={handleInput} />
+            <input name='lastName' type='text' className='input' placeholder='Apellido' onChange={handleInput} />
             <input
               type='password'
-              name=''
-              id=''
+              name='password'
               className='input'
               placeholder='Crea una contraseña'
+              onChange={handleInput}
             />
-            <button type='button' className=' button form__options-button'>
+            <button type='submit' className=' button form__options-button'>
               Regístrate
             </button>
           </form>
@@ -53,4 +75,9 @@ const Register = (props) => {
     </div>
   );
 };
-export default Register;
+
+const mapDispatchToProps = {
+  registerUser,
+};
+
+export default connect(null, mapDispatchToProps)(Register);

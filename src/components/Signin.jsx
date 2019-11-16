@@ -1,8 +1,27 @@
-import React from 'react';
+import React, { useState } from 'react';
+import { connect } from 'react-redux';
+import { loginUser } from '../actions';
 import '../assets/styles/components/Signin.scss';
 import '../assets/styles/Icons.css';
 
 const Signin = (props) => {
+  const { loginUser } = props;
+  const [form, setForm] = useState({
+    email: '',
+  });
+
+  const handleInput = (event) => {
+    setForm({
+      ...form,
+      [event.target.name]: event.target.value,
+    });
+  };
+
+  const handleSubmit = (event) => {
+    event.preventDefault();
+    loginUser(form);
+    // props.handleCloseClick();
+  };
 
   return (
     <div className='overlay__signin'>
@@ -24,18 +43,20 @@ const Signin = (props) => {
             Iniciar sesión con Google
           </button>
           <hr className='line' />
-          <form action='' className='form'>
+          <form onSubmit={handleSubmit} className='form'>
             <input
-              type='text'
+              type='email'
+              name='email'
               className='input'
               placeholder='Dirección de correo electrónico'
+              onChange={handleInput}
             />
             <input
               type='password'
-              name=''
-              id=''
+              name='password'
               className='input'
               placeholder='Contraseña'
+              onChange={handleInput}
             />
             <div className='form__options'>
               <label
@@ -53,7 +74,7 @@ const Signin = (props) => {
                 Mostrar contraseña
               </a>
             </div>
-            <button type='button' className=' button form__options-button'>
+            <button type='submit' className=' button form__options-button'>
               Iniciar sesión
             </button>
           </form>
@@ -71,4 +92,10 @@ const Signin = (props) => {
     </div>
   );
 };
-export default Signin;
+
+const mapDispatchToProps = {
+  loginUser,
+};
+
+export default connect(null, mapDispatchToProps)(Signin);
+

@@ -46,10 +46,19 @@
       color: #646464;
     }
 
-    .details__price{
-      font-weight: 700;
-      letter-spacing: 1px;
-      text-align: end;
+    .details__footer{
+      display: flex;
+      justify-content: space-between;
+
+      p {
+        margin: 0;
+        margin-top: 16px;
+      }
+
+      .details__price{
+        font-weight: 700;
+        letter-spacing: 1px;
+      }
     }
   }
 }
