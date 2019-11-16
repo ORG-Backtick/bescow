@@ -1,4 +1,5 @@
 const initialState = {
+  user: {},
   coworkingList: undefined,
   selectedCow: undefined,
   filterList: undefined,
@@ -82,6 +83,20 @@ const reducer = (state = initialState, action) => {
       };
 
       return result;
+    };
+
+    case 'LOGIN_REQUEST': {
+      return {
+        ...state,
+        user: action.payload,
+      };
+    };
+
+    case 'LOGOUT_REQUEST': {
+      return {
+        ...state,
+        user: action.payload,
+      };
     };
 
     default:

@@ -1,8 +1,10 @@
 import React from 'react';
+import { connect } from 'react-redux';
 import { Link } from 'react-router-dom';
 import Modal from '../containers/Modal';
 import Signin from './Signin';
 import Register from './Register';
+import { logoutRequest } from '../actions';
 import '../assets/styles/components/Header.scss';
 
 class Header extends React.Component {
@@ -13,6 +15,14 @@ class Header extends React.Component {
       modalSigninVisible: false,
       modalRegisterVisible: false,
     };
+  }
+
+  componentDidUpdate(prevProps) {
+    const hasUser = Object.keys(this.props.user).length > 0;
+    if (prevProps.user !== this.props.user && hasUser) {
+      this.handleCloseModalSignin();
+      this.handleCloseModalRegister();
+    }
   }
 
   handleOpenModalSignin = () => {
@@ -41,9 +51,16 @@ class Header extends React.Component {
     });
   };
 
+  handleLogout = () => {
+    const { logoutRequest } = this.props;
+    logoutRequest({});
+  };
+
   render() {
-    const { logo, origin } = this.props;
+    const { logo, origin, user } = this.props;
     const { modalSigninVisible, modalRegisterVisible } = this.state;
+    const hasUser = Object.keys(user).length > 0;
+
     return (
       <>
         <header className={`header ${origin}`}>
@@ -56,12 +73,13 @@ class Header extends React.Component {
             <span className={`logo__name ${origin}`}>Bescow</span>
           </div>
           <nav className='menu__header'>
-            <a className={`menu__header-option ${origin}`} onClick={this.handleOpenModalSignin}>
-              Inicia sesión
-            </a>
-            <a className={`menu__header-option ${origin}`} onClick={this.handleOpenModalRegister}>
-              Regístrate
-            </a>
+            {hasUser ?
+              <a href='#account' className={`menu__header-option ${origin}`}>{user.user.firstName}</a> :
+              <a heref='#login' className={`menu__header-option ${origin}`} onClick={this.handleOpenModalSignin}>Inicia sesión</a>}
+
+            {hasUser ?
+              <a className={`menu__header-option ${origin}`} onClick={this.handleLogout}>Cerrar sesión</a> :
+              <a className={`menu__header-option ${origin}`} onClick={this.handleOpenModalRegister}>Regístrate</a>}
           </nav>
           <h1 className={`header__title-landing ${origin}`}>
             Encuentra el mejor espacio para trabajar.
@@ -80,4 +98,14 @@ class Header extends React.Component {
   }
 }
 
-export default Header;
+const mapStateToProps = (state) => {
+  return {
+    user: state.user,
+  };
+};
+
+const mapDispatchToProps = {
+  logoutRequest,
+};
+
+export default connect(mapStateToProps, mapDispatchToProps)(Header);
