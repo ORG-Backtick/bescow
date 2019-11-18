@@ -15,6 +15,8 @@ class Header extends React.Component {
       modalSigninVisible: false,
       modalRegisterVisible: false,
     };
+
+    this.logoutRequest = props.logoutRequest;
   }
 
   componentDidUpdate(prevProps) {
@@ -26,6 +28,10 @@ class Header extends React.Component {
   }
 
   handleOpenModalSignin = () => {
+    if (this.props.user === false) {
+      this.logoutRequest({});
+    }
+
     this.setState({
       modalSigninVisible: true,
       modalRegisterVisible: false,
@@ -43,6 +49,10 @@ class Header extends React.Component {
     this.setState({
       modalSigninVisible: false,
     });
+
+    if (this.props.user === false) {
+      this.logoutRequest({});
+    }
   };
 
   handleCloseModalRegister = (event) => {

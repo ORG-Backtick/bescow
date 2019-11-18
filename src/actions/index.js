@@ -71,7 +71,10 @@ export const loginUser = ({ email, password }) => {
       .then(({ data }) => {
         dispatch(loginRequest(data));
       })
-      .catch((err) => dispatch(setError(err)));
+      .catch((err) => {
+        dispatch(loginRequest(false));
+        dispatch(setError(err));
+      });
   };
 };
 

@@ -1,11 +1,12 @@
 import React, { useState } from 'react';
 import { connect } from 'react-redux';
 import { loginUser } from '../actions';
+import MessageError from './MessageError';
 import '../assets/styles/components/Signin.scss';
 import '../assets/styles/Icons.css';
 
 const Signin = (props) => {
-  const { loginUser } = props;
+  const { loginUser, user } = props;
   const [form, setForm] = useState({
     email: '',
   });
@@ -20,7 +21,6 @@ const Signin = (props) => {
   const handleSubmit = (event) => {
     event.preventDefault();
     loginUser(form);
-    // props.handleCloseClick();
   };
 
   return (
@@ -44,6 +44,7 @@ const Signin = (props) => {
           </button>
           <hr className='line' />
           <form onSubmit={handleSubmit} className='form'>
+            {!user && <MessageError />}
             <input
               type='email'
               name='email'
@@ -93,9 +94,16 @@ const Signin = (props) => {
   );
 };
 
+const mapStateToProps = (state) => {
+  return ({
+    ...state,
+    user: state.user,
+  });
+};
+
 const mapDispatchToProps = {
   loginUser,
 };
 
-export default connect(null, mapDispatchToProps)(Signin);
+export default connect(mapStateToProps, mapDispatchToProps)(Signin);
 
