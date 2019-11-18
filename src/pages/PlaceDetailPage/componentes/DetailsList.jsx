@@ -1,5 +1,6 @@
 import React, { useState, useEffect } from 'react';
 import { connect } from 'react-redux';
+import { logoutRequest } from '../../../actions';
 import Modal from '../../../containers/Modal';
 import Signin from '../../../components/Signin';
 import Register from '../../../components/Register';
@@ -8,7 +9,7 @@ import Gallery from '../../../components/Gallery';
 import '../../../assets/styles/components/DetailsList.scss';
 
 const DetailsList = (props) => {
-  const { handleOpenClick, selectedCow, costDetail, user } = props;
+  const { handleOpenClick, selectedCow, costDetail, user, logoutRequest } = props;
   const { date, total } = costDetail;
 
   const [modal, setModal] = useState({
@@ -24,6 +25,10 @@ const DetailsList = (props) => {
   };
 
   const handleOpenModalSignin = () => {
+    if (user === false) {
+      logoutRequest({});
+    }
+
     setModal({
       modalSigninVisible: true,
       modalRegisterVisible: false,
@@ -35,6 +40,10 @@ const DetailsList = (props) => {
       modalSigninVisible: false,
       modalRegisterVisible: false,
     });
+
+    if (user === false) {
+      logoutRequest({});
+    }
   };
 
   const handleValidateLogin = () => {
@@ -115,4 +124,8 @@ const mapStateToProps = (state) => {
   };
 };
 
-export default connect(mapStateToProps, null)(DetailsList);
+const mapDispatchToProps = {
+  logoutRequest,
+};
+
+export default connect(mapStateToProps, mapDispatchToProps)(DetailsList);
