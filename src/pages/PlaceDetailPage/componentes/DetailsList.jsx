@@ -1,5 +1,6 @@
 import React, { useState, useEffect } from 'react';
 import { connect } from 'react-redux';
+import moment from 'moment';
 import { logoutRequest } from '../../../actions';
 import Modal from '../../../containers/Modal';
 import Signin from '../../../components/Signin';
@@ -99,7 +100,7 @@ const DetailsList = (props) => {
               <span>Total: </span>
               {`$ ${total} MXN`}
             </p>
-            <p>{ `${date.formDateCheckin} - ${date.formDateCheckout}`}</p>
+            <p>{ `${moment(date.formDateCheckin).format('ll')} → ${moment(date.formDateCheckout).format('ll')}`}</p>
           </div>
           <button className='button__book' type='button' onClick={handleValidateLogin}>
             Reservar

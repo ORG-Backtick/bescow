@@ -1,16 +1,18 @@
 /* eslint-disable jsx-a11y/control-has-associated-label */
 import React, { useState } from 'react';
 import { connect } from 'react-redux';
+import DatePicker from 'react-datepicker';
 import { setFilterList } from '../../../actions';
 import '../../../assets/styles/components/FormLanding.scss';
+import 'react-datepicker/dist/react-datepicker.css';
 
 const FormLanding = (props) => {
   const { locationListAvailable, filterList } = props;
 
   const [form, setForm] = useState({
     formWhere: filterList ? filterList.formWhere : '',
-    formDateCheckin: filterList ? filterList.formDateCheckin : '',
-    formDateCheckout: filterList ? filterList.formDateCheckout : '',
+    formDateCheckin: filterList ? filterList.formDateCheckin : new Date(),
+    formDateCheckout: filterList ? filterList.formDateCheckout : new Date(),
     formCow: filterList ? filterList.formCow : 1,
   });
 
@@ -18,6 +20,20 @@ const FormLanding = (props) => {
     setForm({
       ...form,
       [event.target.name]: event.target.value,
+    });
+  };
+
+  const handleDatePickerIn = (date) => {
+    setForm({
+      ...form,
+      formDateCheckin: date,
+    });
+  };
+
+  const handleDatePickerOut = (date) => {
+    setForm({
+      ...form,
+      formDateCheckout: date,
     });
   };
 
@@ -61,29 +77,49 @@ const FormLanding = (props) => {
             <label className='hero__label' htmlFor='formDateCheckin'>
               LLEGADA
             </label>
-            <input
-              className='hero__input hero__form-date-checkin'
-              type='date'
-              name='formDateCheckin'
-              id='formDateCheckin'
-              placeholder='dd/mm/aaaa'
-              onChange={handleInput}
-              defaultValue={filterList ? filterList.formDateCheckin : ''}
-            />
+            {window.matchMedia('(max-width: 490px)').matches ? (
+              <DatePicker
+                className='hero__input hero__form-date-checkin'
+                name='formDateCheckin'
+                selected={form.formDateCheckin}
+                onChange={handleDatePickerIn}
+                dateFormat='dd/MM/yyyy'
+                withPortal
+                required
+              />
+            ) : (
+              <DatePicker
+                className='hero__input hero__form-date-checkin'
+                name='formDateCheckin'
+                selected={form.formDateCheckin}
+                onChange={handleDatePickerIn}
+                dateFormat='dd/MM/yyyy'
+                required
+              />
+            )}
           </div>
           <div className='hero__date-checkout'>
             <label className='hero__label' htmlFor='formDateCheckout'>
               SALIDA
             </label>
-            <input
-              className='hero__input hero__form-date-checkout'
-              type='date'
-              name='formDateCheckout'
-              id='formDateCheckout'
-              placeholder='dd/mm/aaaa'
-              onChange={handleInput}
-              defaultValue={filterList ? filterList.formDateCheckout : ''}
-            />
+            {window.matchMedia('(max-width: 490px)').matches ? (
+              <DatePicker
+                className='hero__input hero__form-date-checkout'
+                selected={form.formDateCheckout}
+                onChange={handleDatePickerOut}
+                dateFormat='dd/MM/yyyy'
+                withPortal
+                required
+              />
+            ) : (
+              <DatePicker
+                className='hero__input hero__form-date-checkout'
+                selected={form.formDateCheckout}
+                onChange={handleDatePickerOut}
+                dateFormat='dd/MM/yyyy'
+                required
+              />
+            )}
           </div>
         </div>
 
@@ -98,6 +134,7 @@ const FormLanding = (props) => {
           placeholder='Coworkers'
           defaultValue={filterList ? filterList.formCow : '1'}
           onChange={handleInput}
+          required
         />
 
         <button className='hero__button-first' type='submit'>
