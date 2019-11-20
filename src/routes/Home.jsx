@@ -12,8 +12,7 @@ const Home = (props) => {
     props.gettingProducts();
     try {
       const fetchData = async () => {
-        // const response = await fetch('https://bescowapi.afvalenciab.now.sh/api/coworking');
-        const response = await fetch('http://localhost:3000/api/coworking');
+        const response = await fetch('https://bescowapi.afvalenciab.now.sh/api/coworking');
         const { data } = await response.json();
         props.getProductsSuccess(data);
       };

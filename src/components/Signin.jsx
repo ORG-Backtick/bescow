@@ -7,7 +7,7 @@ import '../assets/styles/components/Signin.scss';
 import '../assets/styles/Icons.css';
 
 const Signin = (props) => {
-  const { loginUser, user } = props;
+  const { loginUser, loginProvider, user } = props;
   const [form, setForm] = useState({
     email: '',
   });
@@ -111,6 +111,7 @@ const mapStateToProps = (state) => {
 
 const mapDispatchToProps = {
   loginUser,
+  loginProvider,
 };
 
 export default connect(mapStateToProps, mapDispatchToProps)(Signin);
