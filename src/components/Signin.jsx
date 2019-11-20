@@ -24,7 +24,6 @@ const Signin = (props) => {
     loginUser(form);
   };
 
-  //kind of method
   const login = (event) => {
     gmailLogin().then((user) => {
       loginProvider(user);

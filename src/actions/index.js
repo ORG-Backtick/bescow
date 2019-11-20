@@ -50,6 +50,23 @@ export const setReserve = (payload) => {
   });
 };
 
+export const sendEmailToReserve = (payload) => {
+  return (dispatch) => {
+    axios({
+      url: 'https://bescowapi.afvalenciab.now.sh/api/email/send',
+      method: 'post',
+      data: payload,
+    })
+      .then(() => {
+        dispatch(setReserve(payload));
+      })
+      .catch((err) => {
+        dispatch(setReserve(false));
+        dispatch(setError(err));
+      });
+  };
+};
+
 export const loginRequest = (payload) => {
   return ({
     type: 'LOGIN_REQUEST',
@@ -80,7 +97,7 @@ export const loginUser = ({ email, password }) => {
 export const loginProvider = (user) => {
   return (dispatch) => {
     axios({
-      url: 'http://bescowapi.afvalenciab.now.sh/api/auth/sign-provider',
+      url: 'https://bescowapi.afvalenciab.now.sh/api/auth/sign-provider',
       method: 'post',
       data: {
         user: {
@@ -105,7 +122,7 @@ export const loginProvider = (user) => {
 export const registerUser = (payload) => {
   return (dispatch) => {
     axios({
-      url: 'http://bescowapi.afvalenciab.now.sh/api/auth/sign-up',
+      url: 'https://bescowapi.afvalenciab.now.sh/api/auth/sign-up',
       method: 'post',
       data: {
         ...payload,

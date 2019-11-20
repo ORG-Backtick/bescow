@@ -11,11 +11,6 @@ const SearchItem = (props) => {
     props.setCostDetail({ cow: props.cow, filterList: props.filterList });
 
     props.history.push('/cow', { cow: props.cow });
-    // ({
-    //   pathname: '/cow',
-    //   state: { cow: props.cow },
-    //   setSelectedCow: props.cow,
-    // });
   };
 
   return (

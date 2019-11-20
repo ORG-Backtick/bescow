@@ -1,5 +1,6 @@
 import React, { useEffect } from 'react';
 import { connect } from 'react-redux';
+import moment from 'moment';
 import { setFilteredCowList } from '../../actions';
 import LayoutSearch from './LayoutSearch';
 import Header from '../../components/Header';
@@ -15,6 +16,8 @@ const SearchPage = (props) => {
   useEffect(() => {
     if (filterList) {
       props.setFilteredCowList(filterList.formWhere);
+    } else {
+      props.history.push('/');
     }
   }, []);
 
@@ -44,11 +47,11 @@ const SearchPage = (props) => {
         {filterList &&
           (filterList.formDateCheckin && filterList.formDateCheckout) && (
           <p className='filter__item-search'>
-            {filterList.formDateCheckin}
+            { moment(filterList.formDateCheckin).format('ll')}
             {'  '}
-            /
+            →
             {'  '}
-            {filterList.formDateCheckout}
+            {moment(filterList.formDateCheckout).format('ll')}
           </p>
         )}
 

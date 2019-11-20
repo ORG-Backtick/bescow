@@ -3,7 +3,6 @@ import 'firebase/firestore';
 import 'firebase/auth';
 import env from '../../firebaseEnv';
 
-// Initialize Firebase
 const firebaseConfig = {
   apiKey: env.apiKey,
   authDomain: env.authDomain,
@@ -16,9 +15,7 @@ const firebaseConfig = {
 
 firebase.initializeApp(firebaseConfig);
 
-//FIREBASE LOGIN
 export function gmailLogin() {
-  // Using a redirect.
   const provider = new firebase.auth.GoogleAuthProvider();
 
   return firebase.auth().signInWithPopup(provider).then((result) => {
@@ -28,11 +25,10 @@ export function gmailLogin() {
 
     return result.additionalUserInfo.profile;
   }).catch((error) => {
-    console.error(error);
+    throw new Error(error);
   });
 }
 
-//FIREBASE SignOut
 export function logOut() {
   firebase.auth().signOut();
   localStorage.removeItem('user');

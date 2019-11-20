@@ -8,6 +8,7 @@ const initialState = {
   filteredCowList: undefined,
   costDetail: undefined,
   locationListAvailable: undefined,
+  reserve: undefined,
   loaded: false,
   loading: false,
   error: null,
@@ -83,7 +84,7 @@ const reducer = (state = initialState, action) => {
     case 'SET_RESERVE': {
       const result = {
         ...state,
-        reserve: action.payload.id,
+        reserve: action.payload,
       };
 
       return result;
@@ -108,10 +109,10 @@ const reducer = (state = initialState, action) => {
       let dateCount = 1;
 
       if (filterList && filterList.formDateCheckin) {
-        const date1 = moment(filterList.formDateCheckin);
-        const date2 = moment(filterList.formDateCheckout);
+        const date1 = moment(filterList.formDateCheckin).hour(0).minute(0).seconds(0);
+        const date2 = moment(filterList.formDateCheckout).hour(25).minute(0).seconds(0);
 
-        dateCount = (date2.diff(date1, 'days') + 1);
+        dateCount = (date2.diff(date1, 'days'));
       } else {
         const dayDefault = moment().add(1, 'days').format('DD-MM-YYYY');
         filterList['formDateCheckin'] = dayDefault;
