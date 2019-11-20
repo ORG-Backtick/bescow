@@ -4,7 +4,7 @@ import { connect } from 'react-redux';
 import DatePicker from 'react-datepicker';
 import { setFilterList } from '../../../actions';
 import '../../../assets/styles/components/FormLanding.scss';
-import 'react-datepicker/dist/react-datepicker.css';
+import '../../../assets/styles/components/react-datepicker.scss';
 
 const FormLanding = (props) => {
   const { locationListAvailable, filterList } = props;
