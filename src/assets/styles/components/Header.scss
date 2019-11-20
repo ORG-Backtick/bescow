@@ -120,10 +120,8 @@ $url-img-bakground: url(../../static/tanner-van-dera-oaQ2mTeaP7o-unsplash.jpg);
 
 @media screen and (max-width: 490px) {
   .logo {
-    .logo__name.isSearch {
-      font-size: 20px;
-      letter-spacing: 2px;
-      font-weight: 700;
+    .logo__name {
+      display: none;
     }
   }
 
@@ -153,21 +151,7 @@ $url-img-bakground: url(../../static/tanner-van-dera-oaQ2mTeaP7o-unsplash.jpg);
   }
 }
 
-@media screen and (max-width: 362px) {
-  .logo {
-    .logo__name.isSearch {
-      display: none;
-    }
-  }
-}
-
 @media screen and (max-width: 353px) {
-  .logo {
-    .logo__name.isLanding {
-      display: none;
-    }
-  }
-
   .header__title-landing.isLanding {
     font-size: 15px;
   }

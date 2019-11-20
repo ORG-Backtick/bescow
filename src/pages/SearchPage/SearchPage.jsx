@@ -16,6 +16,8 @@ const SearchPage = (props) => {
   useEffect(() => {
     if (filterList) {
       props.setFilteredCowList(filterList.formWhere);
+    } else {
+      props.history.push('/');
     }
   }, []);
 

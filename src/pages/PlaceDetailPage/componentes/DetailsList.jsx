@@ -11,8 +11,11 @@ import '../../../assets/styles/components/DetailsList.scss';
 
 const DetailsList = (props) => {
   const { handleOpenClick, selectedCow, costDetail, user, logoutRequest } = props;
-  const { date, total } = costDetail;
+  if (!costDetail) {
+    window.location.href = '/';
+  }
 
+  const { date, total } = costDetail;
   const [modal, setModal] = useState({
     modalSigninVisible: false,
     modalRegisterVisible: false,

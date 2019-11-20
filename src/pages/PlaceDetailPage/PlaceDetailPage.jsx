@@ -13,10 +13,11 @@ import { setSelectedCow } from '../../actions';
 class PlaceDetailPage extends React.Component {
   constructor(props) {
     super(props);
+
     this.state = {
       reserveVisible: false,
       successMsgVisible: false,
-      selectedCow: props.selectedCow || props.location.state.cow,
+      selectedCow: props.selectedCow,
       costDetail: props.costDetail,
     };
   }
