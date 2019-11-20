@@ -4,6 +4,7 @@
       {
         "id": 1,
         "name": "WeWork Insurgentes Sur 601",
+        "email": "reservas@weworktest.com",
         "overview": "WeWork Insurgentes trae ocho pisos de espacio de coworking único a la avenida más larga de México",
         "description": "En un edificio alto y moderno entre la División del Norte y Viaducto, WeWork Insurgentes trae ocho pisos de espacio de coworking único a la avenida más larga de México. Nuestra conveniente ubicación está a solo unas cuadras del WTC, lo que lo coloca a usted y a su equipo en el centro de la acción. Encontrará un viaje agradable en automóvil o autobús con estacionamiento en el lugar disponible y varias paradas locales a poca distancia. Para los ciclistas, incluso tenemos almacenamiento de bicicletas en el edificio. Cuando se trata de comer, esta área tiene una gran cantidad de opciones. Ya sea que se trate de almuerzos casuales en los favoritos del vecindario El Sabor del Tiempo y La Taberna del Patrón o cenas de clientes en La Strega y Nagaoka, este vecindario lo tiene todo. Con tanto para ofrecer, lleve a su equipo a WeWork Insurgentes y conviértase en el héroe de la oficina.",
         "amenities" : [
@@ -31,6 +32,7 @@
       {
         "id": 2,
         "name": "IOS OFFICES VIRREYES",
+        "email": "reservas@iostest.com",
         "overview": "Edificio de oficinas más prestigioso de la ciudad.",
         "description": "La empresa más grande de Lomas de Chapultepec se encuentra en TORRE VIRREYES, que sin duda es el edificio de oficinas más prestigioso de la ciudad. Además de contar con la certificación LEED Platinum del US Green Building Council (USGBC), tiene una arquitectura espectacular y es el proyecto inmobiliario más destacado del país. En esta ubicación, IOS OFFICES ofrece los servicios IES, ICS e IPS, por ser una ubicación privilegiada, que alberga a los ejecutivos y empresarios de más alto nivel.",
         "amenities" : [
@@ -58,6 +60,7 @@
       {
         "id": 3,
         "name": "Selina Cowork Downtown CDMX",
+        "email": "reservas@selinatest.com",
         "overview": "Equilibrio perfecto entre trabajo y vida con los espacios de Selina CoWorking.",
         "description": "Encuentre el equilibrio perfecto entre trabajo y vida con los espacios de Selina CoWorking. Aproveche un nivel completamente nuevo de energía creativa y productiva que no se puede combinar en espacios pensados específicamente para sus necesidades con alternativas que van desde escritorios compartidos hasta oficinas privadas para usted y todo su equipo. Somos parte de Selina Downtown Ciudad de México, que tiene un concepto completamente diferente de hospitalidad. Tenemos habitaciones acogedoras y un delicioso restaurante lleno de actividades divertidas, así como apartamentos CoLiving del más alto nivel.",
         "amenities" : [

@@ -83,7 +83,7 @@ const reducer = (state = initialState, action) => {
     case 'SET_RESERVE': {
       const result = {
         ...state,
-        reserve: action.payload.id,
+        reserve: action.payload,
       };
 
       return result;

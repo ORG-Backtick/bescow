@@ -50,6 +50,23 @@ export const setReserve = (payload) => {
   });
 };
 
+export const sendEmailToReserve = (payload) => {
+  return (dispatch) => {
+    axios({
+      url: 'http://localhost:3000/api/email/send',
+      method: 'post',
+      data: payload,
+    })
+      .then(() => {
+        dispatch(setReserve(payload));
+      })
+      .catch((err) => {
+        dispatch(setReserva(false));
+        dispatch(setError(err));
+      });
+  };
+};
+
 export const loginRequest = (payload) => {
   return ({
     type: 'LOGIN_REQUEST',

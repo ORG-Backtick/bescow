@@ -1,12 +1,27 @@
 import React from 'react';
+import { connect } from 'react-redux';
 import moment from 'moment';
+import { sendEmailToReserve } from '../actions';
 import '../assets/styles/components/Reserve.scss';
 import '../assets/styles/Icons.css';
 
 const Reserve = (props) => {
-
-  const { handleCloseClick, costDetail } = props;
+  const { handleCloseClick, costDetail, detail, user, sendEmailToReserve } = props;
   const { date, total, dayCost, days } = costDetail;
+
+  const handleReservation = () => {
+    const emailInformation = {
+      emailUser: user.user.email,
+      nameUser: user.user.firstName,
+      emailCow: detail.email,
+      place: detail.name,
+      checkin: moment(date.formDateCheckin).format('ll'),
+      checkout: moment(date.formDateCheckout).format('ll'),
+      quantityUser: date.formCow,
+    };
+
+    sendEmailToReserve(emailInformation);
+  };
 
   return (
     <div className='overlay__reserve'>
@@ -41,7 +56,7 @@ const Reserve = (props) => {
             <p>Total:</p>
             <p>{`$ ${total}`}</p>
           </div>
-          <button type='button' className='button button__reserve'>
+          <button type='button' className='button button__reserve' onClick={handleReservation}>
             Reservar
           </button>
           <p className='cancel__reserve' onClick={handleCloseClick}>Cancelar</p>
@@ -50,4 +65,9 @@ const Reserve = (props) => {
     </div>
   );
 };
-export default Reserve;
+
+const mapDispatchToProps = {
+  sendEmailToReserve,
+};
+
+export default connect(null, mapDispatchToProps)(Reserve);

@@ -32,14 +32,14 @@ class PlaceDetailPage extends React.Component {
 
   render() {
     const { reserveVisible, selectedCow, costDetail } = this.state;
-
+    const { user } = this.props;
     return (
       <LayoutPlaceDetail>
         <Header logo={logo} origin='isSearch' />
         <DetailsList handleOpenClick={this.handleOpenReserve} selectedCow={selectedCow} costDetail={costDetail} />
         <Footer origin='isSearch' />
         {reserveVisible && (
-          <Reserve handleCloseClick={this.handleCloseReserve} detail={selectedCow} costDetail={costDetail} />
+          <Reserve handleCloseClick={this.handleCloseReserve} detail={selectedCow} costDetail={costDetail} user={user} />
         )}
       </LayoutPlaceDetail>
     );
@@ -48,6 +48,7 @@ class PlaceDetailPage extends React.Component {
 
 const mapStateToProps = (state) => {
   return {
+    user: state.user,
     selectedCow: state.selectedCow,
     filterList: state.filterList,
     costDetail: state.costDetail,
