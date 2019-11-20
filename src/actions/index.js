@@ -60,8 +60,8 @@ export const loginRequest = (payload) => {
 export const loginUser = ({ email, password }) => {
   return (dispatch) => {
     axios({
-      url: 'https://bescowapi.afvalenciab.now.sh/api/auth/sign-in',
-      // url: 'http://localhost:3000/api/auth/sign-in',
+      // url: 'https://bescowapi.afvalenciab.now.sh/api/auth/sign-in',
+      url: 'http://localhost:3000/api/auth/sign-in',
       method: 'post',
       auth: {
         username: email,
@@ -75,6 +75,31 @@ export const loginUser = ({ email, password }) => {
         dispatch(loginRequest(false));
         dispatch(setError(err));
       });
+  };
+};
+
+export const loginProvider = (user) => {
+  return (dispatch) => {
+    axios({
+      // url: 'https://bescowapi.afvalenciab.now.sh/api/auth/sign-in',
+      url: 'http://localhost:3000/api/auth/sign-provider',
+      method: 'post',
+      data: {
+        user: {
+          id: user.id,
+          password: user.id,
+          username: user.email,
+          firstName: user.given_name,
+          lastName: user.family_name,
+          email: user.email,
+        },
+        isAdmin: false,
+      },
+    })
+      .then(({ data }) => {
+        dispatch(loginRequest(data));
+      })
+      .catch((err) => dispatch(setError(err)));
   };
 };
 
