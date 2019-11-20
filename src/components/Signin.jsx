@@ -1,12 +1,13 @@
 import React, { useState } from 'react';
 import { connect } from 'react-redux';
-import { loginUser } from '../actions';
+import { loginUser, loginProvider } from '../actions';
 import MessageError from './MessageError';
+import { gmailLogin } from '../services/Firebase';
 import '../assets/styles/components/Signin.scss';
 import '../assets/styles/Icons.css';
 
 const Signin = (props) => {
-  const { loginUser, user } = props;
+  const { loginUser, loginProvider, user } = props;
   const [form, setForm] = useState({
     email: '',
   });
@@ -21,6 +22,13 @@ const Signin = (props) => {
   const handleSubmit = (event) => {
     event.preventDefault();
     loginUser(form);
+  };
+
+  //kind of method
+  const login = (event) => {
+    gmailLogin().then((user) => {
+      loginProvider(user);
+    });
   };
 
   return (
@@ -38,7 +46,7 @@ const Signin = (props) => {
             <i className='icon-twitter icon' />
             Iniciar sesión con Twitter
           </button>
-          <button type='button' className='button google'>
+          <button type='button' className='button google' onClick={login}>
             <i className='icon-google icon' />
             Iniciar sesión con Google
           </button>
@@ -103,6 +111,7 @@ const mapStateToProps = (state) => {
 
 const mapDispatchToProps = {
   loginUser,
+  loginProvider,
 };
 
 export default connect(mapStateToProps, mapDispatchToProps)(Signin);
