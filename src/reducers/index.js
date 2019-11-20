@@ -8,6 +8,7 @@ const initialState = {
   filteredCowList: undefined,
   costDetail: undefined,
   locationListAvailable: undefined,
+  reserve: undefined,
   loaded: false,
   loading: false,
   error: null,

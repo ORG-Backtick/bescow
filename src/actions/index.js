@@ -61,7 +61,7 @@ export const sendEmailToReserve = (payload) => {
         dispatch(setReserve(payload));
       })
       .catch((err) => {
-        dispatch(setReserva(false));
+        dispatch(setReserve(false));
         dispatch(setError(err));
       });
   };

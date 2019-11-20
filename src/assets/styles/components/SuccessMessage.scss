@@ -1,0 +1,101 @@
+@import '../Vars.scss';
+
+.overlay__success {
+  width: 100%;
+  height: 100%;
+  position: fixed;
+  z-index: 3;
+  top: 0;
+  left: 0;
+  background: rgba(0, 0, 0, 0.8);
+  overflow-x: hidden;
+  display: flex;
+}
+
+.success_container {
+  padding: 30px;
+  margin: auto;
+}
+
+.success {
+  display: flex;
+  flex-direction: column;
+  width: 568px;
+  height: auto;
+  position: relative;
+  z-index: 4;
+  padding: 32px;
+  box-sizing: border-box;
+  background: #fff;
+  font-family: $font-family;
+
+  .close {
+    color: rgba(0, 0, 0, 0.5);
+    margin-bottom: 16px;
+  }
+ 
+  .success_message {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+
+    figure {
+      margin: 0;
+      margin-right: 20px;
+      img {
+        vertical-align: top;
+        width: 90px;
+        height: 90px;
+      }
+    }
+
+    p {
+      font-size: 18px;
+    }
+  }
+
+  .cancel__success {
+    margin: 0;
+    font-size: 14px;
+    margin-bottom: 50px;
+    text-align: center;
+    color: rgb(159, 121, 196);
+    margin-bottom: 20px;
+    cursor: pointer;
+  }
+  .cancel__success:hover {
+    text-decoration: underline;
+  }
+
+  .icon {
+    font-size: 18px;
+    margin-right: 8px;
+  }
+}
+
+@media screen and (max-width: 620px) {
+  .success {
+    z-index: 3;
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    width: 100%;
+    height: 100%;
+    padding: 20px 10px;
+    overflow: auto;
+  }
+}
+
+@media screen and (max-width: 500px) {
+  .success {
+    .success_message {
+      flex-direction: column;
+
+      p {
+        font-size: 14px;
+      }
+    }
+  }
+}
