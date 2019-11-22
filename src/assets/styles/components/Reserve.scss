@@ -1,0 +1,165 @@
+@import '../Vars.scss';
+
+%a-setting {
+  text-decoration: none;
+  display: inline-block;
+  color: rgb(159, 121, 196);
+}
+
+.overlay__reserve {
+  width: 100%;
+  height: 100%;
+  position: fixed;
+  z-index: 3;
+  top: 0;
+  left: 0;
+  background: rgba(0, 0, 0, 0.8);
+  overflow-x: hidden;
+  display: flex;
+}
+
+.reserve__container {
+  padding: 30px;
+  margin: auto;
+}
+
+.reserve {
+  display: flex;
+  flex-direction: column;
+  width: 568px;
+  height: 530px;
+  position: relative;
+  z-index: 4;
+  padding: 32px;
+  box-sizing: border-box;
+  background: #fff;
+  font-family: $font-family;
+
+  .close {
+    color: rgba(0, 0, 0, 0.5);
+    margin-bottom: 16px;
+  }
+
+  .title__reserve {
+    margin: 0;
+    color: $button-main-color;
+    margin-bottom: 20px;
+  }
+
+  .title__fare-reserve {
+    margin: 0;
+    font-size: 20px;
+    font-weight: 700;
+
+    span {
+      font-size: 12px;
+    }
+  }
+
+  .line {
+    margin: 0;
+    width: 100%;
+    margin-bottom: 20px;
+    background: rgb(210, 205, 205);
+    height: 1px;
+    border: 0;
+  }
+
+  .label__title-reserve {
+    font-size: 14px;
+    color: $button-main-color;
+    font-weight: 700;
+    margin-bottom: 10px;
+  }
+
+  .date__detail-reserve {
+    display: flex;
+    width: 60%;
+    justify-content: space-between;
+    margin-bottom: 20px;
+    padding-left: 5px;
+  }
+
+  .coworkers {
+    padding-left: 5px;
+    margin-bottom: 20px;
+  }
+
+  .summary__reserve {
+    display: flex;
+    justify-content: space-between;
+    margin-bottom: 10px;
+  }
+
+  .total__reserve {
+    display: flex;
+    justify-content: space-between;
+    margin-bottom: 30px;
+
+    p {
+      margin: 0;
+      font-size: 20px;
+      font-weight: 700;
+    }
+  }
+
+  .button {
+    width: 100%;
+    height: 46px;
+    margin-bottom: 16px;
+    padding: 10px 22px;
+    font-family: $font-family;
+    border: 0;
+    border-radius: 5px;
+    color: #fff;
+    font-size: 16px;
+    font-weight: 700;
+    outline: none;
+    cursor: pointer;
+  }
+
+  .button__reserve {
+    background: $second-color;
+  }
+
+  .cancel__reserve {
+    margin: 0;
+    font-size: 14px;
+    margin-bottom: 50px;
+    text-align: center;
+    color: rgb(159, 121, 196);
+    margin-bottom: 20px;
+    cursor: pointer;
+  }
+  .cancel__reserve:hover {
+    text-decoration: underline;
+  }
+
+  .icon {
+    font-size: 18px;
+    margin-right: 8px;
+  }
+}
+
+@media screen and (max-width: 620px) {
+  .reserve {
+    z-index: 3;
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    width: 100%;
+    height: 100%;
+    padding: 20px 10px;
+    overflow: auto;
+  }
+}
+
+@media screen and (max-width: 326px) {
+  .reserve {
+    .button {
+      font-size: 14px;
+    }
+  }
+}
