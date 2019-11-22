@@ -30,19 +30,6 @@ const Register = (props) => {
           <div className='close'>
             <i className='icon-close icon' onClick={props.handleCloseClick} />
           </div>
-          <button type='button' className='button facebook'>
-            <i className='icon-facebook icon' />
-            Continuar con Facebook
-          </button>
-          <button type='button' className='button twitter'>
-            <i className='icon-twitter icon' />
-            Continuar con Twitter
-          </button>
-          <button type='button' className='button google'>
-            <i className='icon-google icon' />
-            Continuar con Google
-          </button>
-          <hr className='line' />
           <form onSubmit={handleSubmit} className='form'>
             <input
               name='email'
