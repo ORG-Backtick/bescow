@@ -37,14 +37,6 @@ const Signin = (props) => {
           <div className='close'>
             <i className='icon-close icon' onClick={props.handleCloseClick} />
           </div>
-          <button type='button' className='button facebook'>
-            <i className='icon-facebook icon' />
-            Iniciar sesión con Facebook
-          </button>
-          <button type='button' className='button twitter'>
-            <i className='icon-twitter icon' />
-            Iniciar sesión con Twitter
-          </button>
           <button type='button' className='button google' onClick={login}>
             <i className='icon-google icon' />
             Iniciar sesión con Google
@@ -78,7 +70,7 @@ const Signin = (props) => {
                 />
                 Recordarme
               </label>
-              <a href='/' className='form__options-showpass'>
+              <a href='#showpassword' className='form__options-showpass'>
                 Mostrar contraseña
               </a>
             </div>
